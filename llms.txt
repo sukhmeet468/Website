@@ -1,0 +1,40 @@
+# Indus Automation Inc.
+
+> Full-service industrial automation company based in Winnipeg, Manitoba, Canada.
+
+## About
+
+Indus Automation Inc. designs, builds, programs, and commissions industrial automation systems for a wide range of industries. All control panels are CSA certified and fabricated in-house. We are a Siemens Solution Provider and work with Allen-Bradley, Omron, Schneider, and other major platforms.
+
+## Services
+
+- Control Panel Design & Fabrication (CSA C22.2 certified, UL 508A compliant)
+- PLC/HMI/SCADA Programming (Allen-Bradley, Siemens, Omron, Schneider)
+- Design & Drafting (AutoCAD Electrical, EPLAN)
+- Documentation (FDS, O&M manuals, SOPs, FAT/SAT procedures)
+- Commissioning (I/O checkout, loop verification, operator training)
+- Troubleshooting & Maintenance (24/7 emergency support available)
+- Procurement (BOM management, vendor sourcing, logistics)
+- Instrumentation Services (selection, installation, calibration, HART/Fieldbus)
+
+## Industries Served
+
+- Agriculture (grain handling, feed systems, seed processing)
+- Food Processing (batching, mixing, packaging, sanitary controls)
+- Mining (conveyor systems, crusher controls, ore processing)
+- Metal Treatment (furnace controls, quench systems, plating lines)
+- Water Treatment (pump stations, chemical dosing, SCADA)
+- Utilities (power distribution, substation automation, load management)
+
+## Contact
+
+- Address: 1-442 Higgins Avenue, Winnipeg, MB R3A 1S5, Canada
+- Phone: 204-943-0050
+- Hours: Monday to Friday, 8:00 AM to 4:30 PM CST
+- Emergency: 24-hour emergency service available
+- Website: https://www.indusautomation.ca
+
+## Certifications
+
+- CSA Certified Panel Shop
+- Siemens Solution Provider

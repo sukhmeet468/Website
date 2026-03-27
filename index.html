@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indus Automation Inc. — Expert Control Panel Manufacturing &amp; PLC Programming | Winnipeg, MB</title>
+  <meta name="description" content="CSA-certified industrial automation solutions for Winnipeg and beyond. Custom control panel design &amp; fabrication, PLC/HMI/SCADA programming, commissioning, and 24/7 support. Siemens Solution Provider.">
+  <meta name="keywords" content="control panels, PLC programming, industrial automation, Winnipeg, Manitoba, CSA certified, Siemens, HMI, SCADA, motor control centres">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://sukhmeet468.github.io/Website/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Indus Automation Inc.">
+  <meta property="og:title" content="Expert Control Panel Manufacturing &amp; PLC Programming — Indus Automation">
+  <meta property="og:description" content="CSA-certified industrial automation solutions. Custom control panels, PLC programming, and turnkey solutions for your industry.">
+  <meta property="og:url" content="https://sukhmeet468.github.io/Website/">
+  <meta property="og:image" content="https://sukhmeet468.github.io/Website/assets/images/og-home.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_CA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="geo.region" content="CA-MB">
+  <meta name="geo.placename" content="Winnipeg">
+  <meta name="geo.position" content="49.8989;-97.1378">
+  <link rel="icon" type="image/svg+xml" href="/Website/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="/Website/assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="/Website/manifest.json">
+  <meta name="theme-color" content="#0d0d0d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Website/css/style.css">
+  <link rel="stylesheet" href="/Website/css/responsive.css">
+  <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE">
+  <style>
+    /* ─── HOME-SPECIFIC STYLES ─── */
+    .hero-canvas-wrap { position:absolute; inset:0; z-index:1; }
+    .hero-canvas-wrap canvas { width:100%; height:100%; }
+    .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--border); border:1px solid var(--border); margin-top:40px; }
+    .value-card { background:var(--bg-card); padding:40px 32px; transition:var(--transition); position:relative; overflow:hidden; }
+    .value-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:0; background:var(--red); transition:height var(--transition); }
+    .value-card:hover { background:var(--bg-card-hover); }
+    .value-card:hover::before { height:100%; }
+    .value-card h3 { font-family:var(--font-heading); font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px; }
+    .value-card p { font-size:14px; color:var(--text-secondary); line-height:1.7; }
+    .value-icon { width:48px; height:48px; background:rgba(230,0,0,0.08); display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+    .value-icon svg { width:24px; height:24px; stroke:var(--red); fill:none; stroke-width:1.5; }
+    .why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--border); border:1px solid var(--border); margin-top:40px; counter-reset:why; }
+    .why-card { background:var(--bg-card); padding:36px 28px; transition:var(--transition); }
+    .why-card:hover { background:var(--bg-card-hover); }
+    .why-card::before { counter-increment:why; content:counter(why,decimal-leading-zero); font-family:var(--font-heading); font-size:36px; font-weight:800; color:rgba(230,0,0,0.12); display:block; margin-bottom:12px; }
+    .why-card h4 { font-family:var(--font-heading); font-size:16px; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+    .why-card p { font-size:13px; color:var(--text-muted); line-height:1.6; }
+    .brands-strip { display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:center; margin-top:40px; padding:40px 0; }
+    .brand-logo { height:44px; opacity:0.5; filter:grayscale(1) brightness(2); transition:var(--transition); }
+    .brand-logo:hover { opacity:1; filter:none; }
+    .certs-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:40px; }
+    .cert-item { display:flex; gap:16px; align-items:flex-start; padding:24px; background:var(--bg-card); border:1px solid var(--border); transition:var(--transition); }
+    .cert-item:hover { border-color:var(--red); }
+    .cert-icon { width:40px; min-width:40px; height:40px; background:rgba(230,0,0,0.08); display:flex; align-items:center; justify-content:center; }
+    .cert-icon svg { width:20px; height:20px; stroke:var(--red); fill:none; stroke-width:1.5; }
+    .cert-item h4 { font-family:var(--font-heading); font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:1px; }
+    .cert-item p { font-size:13px; color:var(--text-muted); margin-top:4px; }
+    .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--border); border:1px solid var(--border); margin-top:40px; }
+    .testimonial-card { background:var(--bg-card); padding:36px 28px; }
+    .testimonial-card .stars { color:var(--red); font-size:16px; letter-spacing:2px; margin-bottom:16px; }
+    .testimonial-card h4 { font-family:var(--font-heading); font-size:16px; font-weight:600; margin-bottom:12px; color:var(--red); }
+    .testimonial-card p { font-size:14px; color:var(--text-secondary); line-height:1.7; font-style:italic; }
+    @media(max-width:1024px) { .values-grid,.certs-grid { grid-template-columns:1fr 1fr; } .why-grid { grid-template-columns:1fr 1fr; } }
+    @media(max-width:768px) { .values-grid,.testimonials-grid,.certs-grid { grid-template-columns:1fr; } .why-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="/Website/" class="nav-logo" aria-label="Indus Automation - Home">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div class="nav-logo-text">Indus<small>Automation Inc.</small></div>
+    </a>
+    <div class="nav-links" id="navLinks" role="menubar">
+      <a href="/Website/" class="nav-link" role="menuitem">Home</a>
+      <a href="/Website/services.html" class="nav-link" role="menuitem">Services</a>
+      <a href="/Website/specialties.html" class="nav-link" role="menuitem">Specialties</a>
+      <a href="/Website/projects.html" class="nav-link" role="menuitem">Projects</a>
+      <a href="/Website/faq.html" class="nav-link" role="menuitem">FAQ</a>
+      <a href="/Website/partners.html" class="nav-link" role="menuitem">Partners</a>
+      <a href="/Website/contact.html" class="nav-link nav-cta" role="menuitem">Contact Us</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <!-- ═══ SECTION 1: HERO with animated canvas ═══ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-canvas-wrap"><canvas id="heroCanvas"></canvas></div>
+    <div class="hero-grid-overlay"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="hero-content">
+        <div class="hero-badge"><span class="dot"></span> Winnipeg, Manitoba</div>
+        <h1>Expert Control<br>Panel Manufacturing<br>&amp; <span class="red">PLC Programming</span></h1>
+        <p class="hero-desc">CSA-certified industrial automation solutions for Winnipeg and beyond. Discover what control panels and PLC programming advantages we can bring to your business.</p>
+        <div class="hero-actions">
+          <a href="/Website/services.html" class="btn btn-primary btn-arrow">See Services</a>
+          <a href="/Website/contact.html" class="btn btn-outline">Request a Quote</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-number">CSA</div><div class="hero-stat-label">Certified Panels</div></div>
+          <div class="hero-stat"><div class="hero-stat-number">24/7</div><div class="hero-stat-label">Emergency Support</div></div>
+          <div class="hero-stat"><div class="hero-stat-number">15+</div><div class="hero-stat-label">Years Experience</div></div>
+          <div class="hero-stat"><div class="hero-stat-number">100%</div><div class="hero-stat-label">In-House Capability</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 2: EXPERIENCE / ABOUT ═══ -->
+  <section class="intro section-padding">
+    <div class="container">
+      <div class="intro-text">
+        <span class="section-label">Who We Are</span>
+        <h2 class="section-title">Experience Expertise<br>You Can Trust</h2>
+        <div class="divider"></div>
+        <p>Indus Automation is a trusted provider of advanced control panel systems and PLC programming. With years of experience across industries, our work is rooted in precision, innovation, and reliability.</p>
+        <p>Learn more about how we bring automation to life — and why businesses across Winnipeg and beyond count on us. From concept and design to fabrication, programming, and commissioning, we provide end-to-end automation solutions tailored to your application and industry.</p>
+        <a href="/Website/services.html" class="btn btn-outline btn-arrow" style="margin-top:24px;">About Us</a>
+      </div>
+      <div class="intro-features">
+        <div class="intro-feature fade-up">
+          <div class="intro-feature-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div><h4>PLC, HMI &amp; SCADA</h4><p>Programming for all major platforms — Allen-Bradley, Siemens, Omron, Schneider — tested through in-house FAT.</p></div>
+        </div>
+        <div class="intro-feature fade-up stagger-1">
+          <div class="intro-feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <div><h4>Control Panel Fabrication</h4><p>CSA Group-certified and approved. MCCs, VFD panels, PLC cabinets, operator consoles — all built in-house.</p></div>
+        </div>
+        <div class="intro-feature fade-up stagger-2">
+          <div class="intro-feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div><h4>24-Hour Emergency Support</h4><p>When downtime hits, we respond. One-year parts and labour warranty on all new panels plus ongoing service.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 3: CORE VALUES ═══ -->
+  <section class="section-padding" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <span class="section-label">What Drives Us</span>
+      <h2 class="section-title">Building Smarter, Safer, and<br>More Reliable Automation Systems</h2>
+      <p class="section-desc">Our core values drive precision, innovation &amp; trust in every project we deliver.</p>
+      <div class="values-grid">
+        <div class="value-card fade-up">
+          <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Integrity</h3>
+          <p>We uphold the highest standards of honesty, transparency, and accountability. Every project, from PLC programming to custom control panel fabrication, is executed with ethical responsibility and client trust at the core.</p>
+        </div>
+        <div class="value-card fade-up stagger-1">
+          <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+          <h3>Quality &amp; Precision</h3>
+          <p>We obsess over every detail — delivering reliable, precision-built solutions tailored to your unique needs. Each panel is built to CSA standards, thoroughly tested, and field-proven for long-term performance. Our focus is 100% on client satisfaction.</p>
+        </div>
+        <div class="value-card fade-up stagger-2">
+          <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <h3>Safety First</h3>
+          <p>We adhere to rigorous safety protocols across all projects. With CSA Group approvals and Red Seal-certified electricians, your systems are engineered for safe operation from design through commissioning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 4: WHY CHOOSE US ═══ -->
+  <section class="section-padding">
+    <div class="container">
+      <span class="section-label">Why Industry Leaders Choose Us</span>
+      <h2 class="section-title">Smart, Scalable &amp;<br>Certified Industrial Solutions</h2>
+      <p class="section-desc">We engineer powerful automation systems that drive performance, reliability, and results — tailored to your operations.</p>
+      <div class="why-grid">
+        <div class="why-card fade-up"><h4>Innovative Solutions</h4><p>We design smarter, scalable control systems using modern automation technologies for seamless operations.</p></div>
+        <div class="why-card fade-up"><h4>Quality Unsurpassed</h4><p>Each panel is built to CSA standards, thoroughly tested, and field-proven for long-term performance.</p></div>
+        <div class="why-card fade-up"><h4>Trusted Problem Solvers</h4><p>From concept to commissioning, clients trust Indus for turnkey results that exceed expectations.</p></div>
+        <div class="why-card fade-up"><h4>End-to-End Delivery</h4><p>Design, fabrication, programming, commissioning, and ongoing support — all under one roof.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 5: BRAND PARTNERS ═══ -->
+  <section class="section-padding" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container" style="text-align:center;">
+      <span class="section-label">Trusted Partners</span>
+      <h2 class="section-title">Brands We Work With</h2>
+      <p class="section-desc" style="margin:0 auto;">Some of the high-quality services we provide are made possible by the following industry-leading brands.</p>
+      <div class="brands-strip">
+        <!-- Replace with actual brand logos in /assets/images/brands/ -->
+        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">ABB</div>
+        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Siemens</div>
+        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Allen-Bradley</div>
+        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Schneider</div>
+        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Eaton</div>
+        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Omron</div>
+        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Honeywell</div>
+        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">GE</div>
+        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Benshaw</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 6: CERTIFICATIONS ═══ -->
+  <section class="section-padding">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
+        <div>
+          <span class="section-label">Credentials</span>
+          <h2 class="section-title">Professional<br>Certifications</h2>
+          <div class="divider"></div>
+          <div class="certs-grid" style="margin-top:24px;">
+            <div class="cert-item fade-up">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+              <div><h4>Siemens Solution Provider</h4><p>Equipped with knowledge of the latest SIMATIC automation components.</p></div>
+            </div>
+            <div class="cert-item fade-up">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+              <div><h4>CSA Group Certified</h4><p>CSA Group-certified and approved panel manufacturer.</p></div>
+            </div>
+            <div class="cert-item fade-up">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+              <div><h4>Red Seal Electrician</h4><p>Red Seal Certificate of Qualification — Canada-wide recognition.</p></div>
+            </div>
+            <div class="cert-item fade-up">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+              <div><h4>Certified Engineering Technologist</h4><p>CET designation — engineering excellence.</p></div>
+            </div>
+            <div class="cert-item fade-up">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+              <div><h4>Gold Seal — Manitoba</h4><p>Gold Seal Certificate of Qualification for electricians in Manitoba.</p></div>
+            </div>
+            <div class="cert-item fade-up">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+              <div><h4>Gold Seal — Ontario</h4><p>Gold Seal Certificate of Qualification for electricians in Ontario.</p></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="section-label">Memberships</span>
+          <h2 class="section-title">Professional<br>Affiliations</h2>
+          <div class="divider"></div>
+          <div style="display:flex;flex-direction:column;gap:16px;margin-top:24px;">
+            <div class="cert-item fade-up">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <div><h4>Manitoba Electrical League (MEL)</h4></div>
+            </div>
+            <div class="cert-item fade-up">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <div><h4>CTTAM</h4><p>Certified Technicians &amp; Technologists Association of Manitoba</p></div>
+            </div>
+            <div class="cert-item fade-up">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <div><h4>Canadian Construction Association (CCA)</h4></div>
+            </div>
+            <div class="cert-item fade-up">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <div><h4>Winnipeg Construction Association (WCA)</h4></div>
+            </div>
+            <div class="cert-item fade-up">
+              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <div><h4>Schneider Electric Alliance Partner</h4><p>Alliance Registered System Integrator Partner</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 7: TESTIMONIALS ═══ -->
+  <section class="section-padding" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <span class="section-label">Client Feedback</span>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-desc">Trusted by professionals across industries — from wastewater treatment to food processing, mining, and more.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <div class="stars">★★★★★</div>
+          <h4>"Reliable, Custom Control Panels Built to Perfection!"</h4>
+          <p>Indus Automation built a custom PLC control panel for our wastewater treatment plant, and the results were incredible. From initial design to final commissioning, the entire process was smooth and professional. Their attention to detail, quality craftsmanship, and adherence to CSA standards really stood out.</p>
+        </div>
+        <div class="testimonial-card fade-up stagger-1">
+          <div class="stars">★★★★★</div>
+          <h4>"Their Programming Team Is Top Notch!"</h4>
+          <p>We needed complex HMI and SCADA integration for our food processing line, and Indus Automation delivered beyond expectations. Their team walked us through the programming logic and interface design step-by-step. The system is reliable, intuitive, and makes our daily operations far more efficient.</p>
+        </div>
+        <div class="testimonial-card fade-up stagger-2">
+          <div class="stars">★★★★★</div>
+          <h4>"Exceptional Support &amp; Fast Turnaround"</h4>
+          <p>We've worked with Indus on multiple projects — control panel upgrades, VFD integrations, and instrumentation setups. What sets them apart is their fast quoting, minimal lead times, and amazing technical support. Even when issues pop up post-installation, they're quick to troubleshoot and resolve them.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <p style="color:var(--text-secondary);margin-bottom:16px;">Already worked with us? Share your experience and help others make informed decisions!</p>
+        <a href="https://g.page/r/CekU074ShzHvEBM/review" target="_blank" rel="noopener" class="btn btn-outline btn-arrow">Leave a Google Review</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BAND ═══ -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Ready to Automate?</h2>
+      <p>Get started on your control panel project today. From concept to commissioning — we deliver.</p>
+      <a href="/Website/contact.html" class="btn btn-white btn-arrow">Request a Quote</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Indus Automation Inc.</h3>
+        <p>Full-service industrial automation — control panels, PLC programming, commissioning, and 24/7 support. CSA-certified. Siemens Solution Provider. Based in Winnipeg, Manitoba.</p>
+        <div style="margin-top:20px;display:flex;gap:12px;">
+          <a href="https://linkedin.com/company/indusautomation" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://g.page/r/CekU074ShzHvEBM/review" target="_blank" rel="noopener" aria-label="Google Reviews" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/Website/">Home</a></li>
+          <li><a href="/Website/services.html">Services</a></li>
+          <li><a href="/Website/specialties.html">Specialties</a></li>
+          <li><a href="/Website/projects.html">Projects</a></li>
+          <li><a href="/Website/faq.html">FAQ</a></li>
+          <li><a href="/Website/partners.html">Partners</a></li>
+          <li><a href="/Website/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/Website/services/control-panels.html">Control Panels</a></li>
+          <li><a href="/Website/services/plc-programming.html">PLC Programming</a></li>
+          <li><a href="/Website/services/design-drafting.html">Design &amp; Drafting</a></li>
+          <li><a href="/Website/services/mcc.html">Motor Control Centres</a></li>
+          <li><a href="/Website/services/troubleshooting.html">Troubleshooting</a></li>
+          <li><a href="/Website/services/pump-panels.html">Pump Control Panels</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://maps.google.com/?q=442+Higgins+Ave+Winnipeg+MB" target="_blank" rel="noopener">1-442 Higgins Ave</a></li>
+          <li><span>Winnipeg, MB R3A 1S5</span></li>
+          <li><a href="tel:+12049430050">T: 204-943-0050</a></li>
+          <li><span>F: 204-943-0112</span></li>
+          <li><a href="mailto:info@indusautomation.com">info@indusautomation.com</a></li>
+          <li><span>Mon–Fri: 8AM–4:30PM</span></li>
+          <li><span style="color:var(--red);">24-hour service available</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Indus Automation Inc. All rights reserved.</span>
+      <span>CSA Certified &bull; Siemens Solution Provider &bull; Winnipeg, MB</span>
+    </div>
+  </div>
+</footer>
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="/Website/js/main.js" defer></script>
+<script src="/Website/js/hero-animation.js" defer></script>
+<script src="/Website/js/seo.js" defer></script>
+<script>document.addEventListener('DOMContentLoaded', () => injectStructuredData('home'));</script>
+</body>
+</html>
