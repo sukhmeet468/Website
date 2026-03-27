@@ -10,7 +10,7 @@
    4. Done — emails flow to your inbox, captcha blocks bots
    ═══════════════════════════════════════════════════════════════ */
 
-const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY'; // ← Replace this
+const WEB3FORMS_KEY = 'c5f0c2b9-dded-4a61-9544-2a514b6d6ad1';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
