@@ -1,48 +1,19 @@
 /* ═══════════════════════════════════════════════════════════════
-   INDUS AUTOMATION — Form Handler
-   Uses EmailJS to send real email notifications from the browser.
-   No backend required. Free tier = 200 emails/month.
-   
-   SETUP INSTRUCTIONS:
-   1. Go to https://www.emailjs.com/ and create a free account
-   2. Add an Email Service (Gmail, Outlook, etc.)
-   3. Create an Email Template with variables:
-      {{from_name}}, {{from_email}}, {{phone}}, {{service}}, {{message}}
-   4. Replace the 3 IDs below with your actual IDs
+   INDUS AUTOMATION — Form Handler (Formspree)
+   Sends real emails WITH file attachments. No backend needed.
+   Free tier: 50 submissions/month. Paid plans for more.
+
+   SETUP (2 minutes):
+   1. Go to https://formspree.io and sign up (free)
+   2. Click "New Form" → name it "Indus Contact Form"
+   3. Copy your Form ID (looks like: xyzabcde)
+   4. Paste it below replacing YOUR_FORM_ID
+   5. Done — emails with attachments will flow to your inbox
    ═══════════════════════════════════════════════════════════════ */
 
-// ──── CONFIGURATION (Replace these with your EmailJS IDs) ────
-const EMAILJS_CONFIG = {
-  publicKey:  'YOUR_PUBLIC_KEY',      // EmailJS → Account → API Keys
-  serviceId:  'YOUR_SERVICE_ID',      // EmailJS → Email Services → Service ID
-  templateId: 'YOUR_TEMPLATE_ID',     // EmailJS → Email Templates → Template ID
-};
+const FORMSPREE_ID = 'xojpjvdo';
 
-// ──── NOTIFICATION EMAIL (who receives form submissions) ────
-const NOTIFY_EMAIL = 'info@indusautomation.ca'; // Change to your real email
-
-/* ─── INIT ─── */
 document.addEventListener('DOMContentLoaded', () => {
-  // Load EmailJS SDK
-  if (EMAILJS_CONFIG.publicKey !== 'YOUR_PUBLIC_KEY') {
-    loadEmailJS();
-  }
-  initContactForm();
-});
-
-/* ─── LOAD EMAILJS SDK ─── */
-function loadEmailJS() {
-  const script = document.createElement('script');
-  script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
-  script.onload = () => {
-    emailjs.init(EMAILJS_CONFIG.publicKey);
-    console.log('[Indus] EmailJS initialized');
-  };
-  document.head.appendChild(script);
-}
-
-/* ─── INIT CONTACT FORM ─── */
-function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
@@ -55,7 +26,7 @@ function initContactForm() {
       if (field.classList.contains('invalid')) validateField(field);
     });
   });
-}
+});
 
 /* ─── FIELD VALIDATION ─── */
 function validateField(field) {
@@ -75,68 +46,103 @@ function validateField(field) {
   return valid;
 }
 
-/* ─── FORM SUBMIT HANDLER ─── */
+/* ─── FORM SUBMIT ─── */
 async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button[type="submit"]');
-  const statusEl = form.querySelector('.form-status') || createStatusElement(form);
+  const statusEl = form.querySelector('.form-status') || createStatusEl(form);
 
-  // Validate all fields
+  // Validate required fields
   let allValid = true;
   form.querySelectorAll('[required]').forEach(field => {
     if (!validateField(field)) allValid = false;
   });
-
   if (!allValid) {
     showStatus(statusEl, 'Please fill in all required fields.', 'error');
     return;
   }
 
-  // Honeypot check (anti-spam)
+  // Honeypot check
   const honeypot = form.querySelector('[name="website"]');
-  if (honeypot && honeypot.value) return; // Bot detected
+  if (honeypot && honeypot.value) return;
 
-  // Collect data
-  const data = {
-    from_name: form.querySelector('[name="name"]').value.trim(),
-    from_email: form.querySelector('[name="email"]').value.trim(),
-    phone: form.querySelector('[name="phone"]')?.value.trim() || 'Not provided',
-    service: form.querySelector('[name="service"]')?.value || 'Not specified',
-    message: form.querySelector('[name="message"]').value.trim(),
-    to_email: NOTIFY_EMAIL,
-  };
+  // Build FormData (supports file uploads)
+  const formData = new FormData();
 
-  // UI: loading state
+  // Text fields
+  formData.append('Name', form.querySelector('[name="name"]').value.trim());
+  formData.append('Email', form.querySelector('[name="email"]').value.trim());
+  formData.append('Phone', form.querySelector('[name="phone"]')?.value.trim() || 'Not provided');
+  formData.append('Company', form.querySelector('[name="company"]')?.value.trim() || 'Not provided');
+  formData.append('Service', form.querySelector('[name="service"]')?.value || 'Not specified');
+  formData.append('Industry', form.querySelector('[name="industry"]')?.value || 'Not specified');
+  formData.append('Timeline', form.querySelector('[name="timeline"]')?.value || 'Not specified');
+  formData.append('Message', form.querySelector('[name="message"]').value.trim());
+
+  // Checkboxes
+  const prefs = [];
+  if (form.querySelector('[name="request_quote"]')?.checked) prefs.push('Formal Quote Requested');
+  if (form.querySelector('[name="request_callback"]')?.checked) prefs.push('Callback Requested');
+  if (form.querySelector('[name="is_emergency"]')?.checked) prefs.push('EMERGENCY / URGENT');
+  if (prefs.length) formData.append('Preferences', prefs.join(', '));
+
+  // File attachments
+  const files = typeof window.getUploadedFiles === 'function' ? window.getUploadedFiles() : [];
+  files.forEach((file, i) => {
+    formData.append(`attachment_${i + 1}`, file, file.name);
+  });
+
+  // Formspree metadata
+  formData.append('_subject', 'New Quote Request from ' + form.querySelector('[name="name"]').value.trim());
+  formData.append('_replyto', form.querySelector('[name="email"]').value.trim());
+
+  // Loading state
   const origHTML = btn.innerHTML;
   btn.innerHTML = 'Sending...';
   btn.classList.add('loading');
   statusEl.style.display = 'none';
 
   try {
-    if (EMAILJS_CONFIG.publicKey !== 'YOUR_PUBLIC_KEY' && typeof emailjs !== 'undefined') {
-      // ──── LIVE MODE: Send via EmailJS ────
-      await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, data);
-      showStatus(statusEl, 'Message sent successfully! We\'ll respond within one business day.', 'success');
-      form.reset();
+    if (FORMSPREE_ID === 'YOUR_FORM_ID') {
+      // ── DEMO MODE ──
+      await new Promise(r => setTimeout(r, 1500));
+      showStatus(statusEl, 'Demo mode — Formspree not configured yet. Open js/form-handler.js and paste your Form ID.', 'success');
+      console.log('[Indus] Form data (demo):', Object.fromEntries(formData));
+      console.log('[Indus] Files attached:', files.map(f => f.name));
     } else {
-      // ──── DEMO MODE: Simulate send ────
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      showStatus(statusEl, 'Demo mode — EmailJS not configured. See form-handler.js to connect.', 'success');
-      console.log('[Indus] Form data (demo):', data);
-      form.reset();
+      // ── LIVE MODE — Send to Formspree ──
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' },
+      });
+
+      if (response.ok) {
+        showStatus(statusEl, 'Message sent successfully! We\'ll respond within one business day.', 'success');
+        form.reset();
+        // Clear file uploads
+        if (document.getElementById('fileList')) document.getElementById('fileList').innerHTML = '';
+        if (typeof window.getUploadedFiles === 'function') {
+          const fileArr = window.getUploadedFiles();
+          fileArr.length = 0;
+        }
+      } else {
+        const data = await response.json();
+        const errorMsg = data.errors ? data.errors.map(e => e.message).join(', ') : 'Something went wrong.';
+        showStatus(statusEl, errorMsg + ' Please call us at 204-943-0050.', 'error');
+      }
     }
   } catch (error) {
-    console.error('[Indus] Email send failed:', error);
-    showStatus(statusEl, 'Something went wrong. Please call us at 204-943-0050 or try again.', 'error');
+    console.error('[Indus] Form submission failed:', error);
+    showStatus(statusEl, 'Connection error. Please call us at 204-943-0050 or try again.', 'error');
   } finally {
     btn.innerHTML = origHTML;
     btn.classList.remove('loading');
   }
 }
 
-/* ─── STATUS MESSAGE ─── */
-function createStatusElement(form) {
+function createStatusEl(form) {
   const el = document.createElement('div');
   el.className = 'form-status';
   form.appendChild(el);

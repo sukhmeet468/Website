@@ -46,6 +46,7 @@
     left: 0;
     right: 0;
     background: rgba(13,13,13,0.98);
+    -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
     flex-direction: column;
     padding: 20px;
