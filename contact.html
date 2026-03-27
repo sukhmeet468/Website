@@ -17,6 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/Website/css/style.css">
   <link rel="stylesheet" href="/Website/css/responsive.css">
+  <script src="https://web3forms.com/client/script.js" async defer></script>
   <style>
     .contact-hero-text { max-width:700px; }
     .contact-hero-text p { font-size:17px; color:var(--text-secondary); line-height:1.8; margin-top:16px; }
@@ -199,6 +200,9 @@
             <div class="honeypot" aria-hidden="true">
               <input type="text" name="website" tabindex="-1" autocomplete="off">
             </div>
+
+            <!-- hCaptcha spam protection -->
+            <div class="h-captcha" data-captcha="true" style="margin-top:24px;"></div>
 
             <button type="submit" class="btn btn-primary btn-arrow">Send Message</button>
             <div class="form-status"></div>

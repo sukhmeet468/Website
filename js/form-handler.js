@@ -1,17 +1,16 @@
 /* ═══════════════════════════════════════════════════════════════
-   INDUS AUTOMATION — Form Handler (Formspree)
-   Sends real emails WITH file attachments. No backend needed.
-   Free tier: 50 submissions/month. Paid plans for more.
+   INDUS AUTOMATION — Form Handler (Web3Forms + hCaptcha)
+   Sends real emails WITH file attachments + spam protection.
+   Free: Unlimited submissions. No backend needed.
 
-   SETUP (2 minutes):
-   1. Go to https://formspree.io and sign up (free)
-   2. Click "New Form" → name it "Indus Contact Form"
-   3. Copy your Form ID (looks like: xyzabcde)
-   4. Paste it below replacing YOUR_FORM_ID
-   5. Done — emails with attachments will flow to your inbox
+   SETUP (3 minutes):
+   1. Go to https://web3forms.com
+   2. Enter your email → you'll receive an Access Key via email
+   3. Paste that Access Key below replacing YOUR_ACCESS_KEY
+   4. Done — emails flow to your inbox, captcha blocks bots
    ═══════════════════════════════════════════════════════════════ */
 
-const FORMSPREE_ID = 'xojpjvdo';
+const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY'; // ← Replace this
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
@@ -63,74 +62,90 @@ async function handleSubmit(e) {
     return;
   }
 
-  // Honeypot check
+  // Honeypot check (backup spam filter)
   const honeypot = form.querySelector('[name="website"]');
   if (honeypot && honeypot.value) return;
 
-  // Build FormData (supports file uploads)
+  // Build FormData object for submission
   const formData = new FormData();
 
-  // Text fields
+  // ── Web3Forms required fields ──
+  formData.append('access_key', 'c5f0c2b9-dded-4a61-9544-2a514b6d6ad1');
+  formData.append('subject', 'New Quote Request from ' + (form.querySelector('[name="name"]').value.trim()));
+  formData.append('from_name', 'Indus Automation Website');
+
+  // Enable hCaptcha verification (built into Web3Forms)
+  formData.append('botcheck', '');
+
+  // Get hCaptcha response token if widget is present
+  const hcaptchaResponse = form.querySelector('[name="h-captcha-response"]');
+  if (hcaptchaResponse && hcaptchaResponse.value) {
+    formData.append('h-captcha-response', hcaptchaResponse.value);
+  }
+
+  // ── Contact fields ──
   formData.append('Name', form.querySelector('[name="name"]').value.trim());
   formData.append('Email', form.querySelector('[name="email"]').value.trim());
   formData.append('Phone', form.querySelector('[name="phone"]')?.value.trim() || 'Not provided');
   formData.append('Company', form.querySelector('[name="company"]')?.value.trim() || 'Not provided');
-  formData.append('Service', form.querySelector('[name="service"]')?.value || 'Not specified');
+  formData.append('Service Requested', form.querySelector('[name="service"]')?.value || 'Not specified');
   formData.append('Industry', form.querySelector('[name="industry"]')?.value || 'Not specified');
   formData.append('Timeline', form.querySelector('[name="timeline"]')?.value || 'Not specified');
   formData.append('Message', form.querySelector('[name="message"]').value.trim());
 
-  // Checkboxes
+  // Reply-to so you can hit Reply in your email client
+  formData.append('replyto', form.querySelector('[name="email"]').value.trim());
+
+  // ── Checkboxes ──
   const prefs = [];
   if (form.querySelector('[name="request_quote"]')?.checked) prefs.push('Formal Quote Requested');
   if (form.querySelector('[name="request_callback"]')?.checked) prefs.push('Callback Requested');
-  if (form.querySelector('[name="is_emergency"]')?.checked) prefs.push('EMERGENCY / URGENT');
+  if (form.querySelector('[name="is_emergency"]')?.checked) prefs.push('⚠ EMERGENCY / URGENT');
   if (prefs.length) formData.append('Preferences', prefs.join(', '));
 
-  // File attachments
+  // ── File attachments ──
   const files = typeof window.getUploadedFiles === 'function' ? window.getUploadedFiles() : [];
   files.forEach((file, i) => {
-    formData.append(`attachment_${i + 1}`, file, file.name);
+    formData.append(`attachment`, file, file.name);
   });
 
-  // Formspree metadata
-  formData.append('_subject', 'New Quote Request from ' + form.querySelector('[name="name"]').value.trim());
-  formData.append('_replyto', form.querySelector('[name="email"]').value.trim());
-
-  // Loading state
+  // ── Loading state ──
   const origHTML = btn.innerHTML;
   btn.innerHTML = 'Sending...';
   btn.classList.add('loading');
   statusEl.style.display = 'none';
 
   try {
-    if (FORMSPREE_ID === 'YOUR_FORM_ID') {
+    if (WEB3FORMS_KEY === 'YOUR_ACCESS_KEY') {
       // ── DEMO MODE ──
       await new Promise(r => setTimeout(r, 1500));
-      showStatus(statusEl, 'Demo mode — Formspree not configured yet. Open js/form-handler.js and paste your Form ID.', 'success');
+      showStatus(statusEl, 'Demo mode — Web3Forms not configured yet. Open js/form-handler.js and paste your Access Key.', 'success');
       console.log('[Indus] Form data (demo):', Object.fromEntries(formData));
       console.log('[Indus] Files attached:', files.map(f => f.name));
     } else {
-      // ── LIVE MODE — Send to Formspree ──
-      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      // ── LIVE MODE — Send via Web3Forms ──
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData,
-        headers: { 'Accept': 'application/json' },
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (result.success) {
         showStatus(statusEl, 'Message sent successfully! We\'ll respond within one business day.', 'success');
         form.reset();
+
+        // Reset hCaptcha widget
+        if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
+
         // Clear file uploads
-        if (document.getElementById('fileList')) document.getElementById('fileList').innerHTML = '';
+        const fileList = document.getElementById('fileList');
+        if (fileList) fileList.innerHTML = '';
         if (typeof window.getUploadedFiles === 'function') {
-          const fileArr = window.getUploadedFiles();
-          fileArr.length = 0;
+          window.getUploadedFiles().length = 0;
         }
       } else {
-        const data = await response.json();
-        const errorMsg = data.errors ? data.errors.map(e => e.message).join(', ') : 'Something went wrong.';
-        showStatus(statusEl, errorMsg + ' Please call us at 204-943-0050.', 'error');
+        showStatus(statusEl, (result.message || 'Something went wrong.') + ' Please call us at 204-943-0050.', 'error');
       }
     }
   } catch (error) {
