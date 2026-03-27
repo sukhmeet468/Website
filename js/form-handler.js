@@ -116,15 +116,7 @@ async function handleSubmit(e) {
   statusEl.style.display = 'none';
 
   try {
-    if (WEB3FORMS_KEY === 'YOUR_ACCESS_KEY') {
-      // ── DEMO MODE ──
-      await new Promise(r => setTimeout(r, 1500));
-      showStatus(statusEl, 'Demo mode — Web3Forms not configured yet. Open js/form-handler.js and paste your Access Key.', 'success');
-      console.log('[Indus] Form data (demo):', Object.fromEntries(formData));
-      console.log('[Indus] Files attached:', files.map(f => f.name));
-    } else {
-      // ── LIVE MODE — Send via Web3Forms ──
-      const response = await fetch('https://api.web3forms.com/submit', {
+    const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData,
       });
@@ -147,7 +139,6 @@ async function handleSubmit(e) {
       } else {
         showStatus(statusEl, (result.message || 'Something went wrong.') + ' Please call us at 204-943-0050.', 'error');
       }
-    }
   } catch (error) {
     console.error('[Indus] Form submission failed:', error);
     showStatus(statusEl, 'Connection error. Please call us at 204-943-0050 or try again.', 'error');
