@@ -4,6 +4,7 @@ class IndustrialGrid {
     this.ctx = canvas.getContext('2d');
     this.nodes = []; this.connections = []; this.pulses = [];
     this.mouse = { x: -1000, y: -1000 };
+    this.time = 0;
     this.dpr = window.devicePixelRatio || 1;
     this.resize(); this.init(); this.bindEvents(); this.animate();
   }
@@ -43,16 +44,44 @@ class IndustrialGrid {
     this.canvas.addEventListener('mouseleave', () => { this.mouse.x = -1000; this.mouse.y = -1000; });
   }
   animate() {
+    this.time += 0.016;
     const c = this.ctx; c.clearRect(0, 0, this.w, this.h);
     for (const cn of this.connections) {
       const a = this.nodes[cn.a], b = this.nodes[cn.b];
       const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
       const dm = Math.sqrt((mx - this.mouse.x) ** 2 + (my - this.mouse.y) ** 2);
       const g = Math.max(0, 1 - dm / 200);
+
+      // Base connection path (orthogonal style) for visual network grid
       c.beginPath();
-      if (Math.abs(a.x - b.x) > Math.abs(a.y - b.y)) { c.moveTo(a.x, a.y); c.lineTo(b.x, a.y); c.lineTo(b.x, b.y); }
-      else { c.moveTo(a.x, a.y); c.lineTo(a.x, b.y); c.lineTo(b.x, b.y); }
-      c.strokeStyle = `rgba(230,0,0,${0.11 + g * 0.2})`; c.lineWidth = 0.8 + g * 1.1; c.stroke();
+      if (Math.abs(a.x - b.x) > Math.abs(a.y - b.y)) {
+        c.moveTo(a.x, a.y); c.lineTo(b.x, a.y); c.lineTo(b.x, b.y);
+      } else {
+        c.moveTo(a.x, a.y); c.lineTo(a.x, b.y); c.lineTo(b.x, b.y);
+      }
+      c.strokeStyle = `rgba(230,0,0,${0.16 + g * 0.24})`;
+      c.lineWidth = 1 + g * 1.2;
+      c.stroke();
+
+      // Animated power-flow along connection
+      const t0 = (this.time * 0.24 + cn.dist * 0.004) % 1;
+      const span = 0.18;
+      const t1 = (t0 + span) % 1;
+      const drawSegment = (u, v) => {
+        const x0 = a.x + (b.x - a.x) * u;
+        const y0 = a.y + (b.y - a.y) * u;
+        const x1 = a.x + (b.x - a.x) * v;
+        const y1 = a.y + (b.y - a.y) * v;
+        c.beginPath();
+        c.moveTo(x0, y0);
+        c.lineTo(x1, y1);
+        const intensity = 0.24 + g * 0.5 + 0.22 * Math.sin(this.time * 6 + cn.dist * 0.12);
+        c.strokeStyle = `rgba(255,110,80,${Math.min(0.8, intensity)})`;
+        c.lineWidth = 2.2 + g * 2.2;
+        c.stroke();
+      };
+      if (t0 < t1) drawSegment(t0, t1);
+      else { drawSegment(t0, 1); drawSegment(0, t1); }
     }
     for (const n of this.nodes) {
       n.pulse += n.speed;
