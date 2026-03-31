@@ -2,7 +2,6 @@ class HeroAmbientAnimation {
   constructor(canvas) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
-    this.orbs = [];
     this.nodes = [];
     this.dpr = window.devicePixelRatio || 1;
     this.resize = this.resize.bind(this);
@@ -13,7 +12,6 @@ class HeroAmbientAnimation {
 
   init() {
     this.resize();
-    this.buildOrbs();
     window.addEventListener('resize', this.resize);
     if (!this.handleReducedMotion.matches) {
       this.animate();
@@ -31,20 +29,10 @@ class HeroAmbientAnimation {
     this.canvas.style.width = `${this.width}px`;
     this.canvas.style.height = `${this.height}px`;
     this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
-    this.buildOrbs();
+    this.buildNodes();
   }
 
-  buildOrbs() {
-    const count = Math.max(5, Math.round(this.width / 260));
-    this.orbs = Array.from({ length: count }, (_, index) => ({
-      x: (this.width / (count + 1)) * (index + 1),
-      y: this.height * (0.2 + Math.random() * 0.65),
-      radius: 80 + Math.random() * 140,
-      alpha: 0.08 + Math.random() * 0.08,
-      drift: 0.15 + Math.random() * 0.25,
-      offset: Math.random() * Math.PI * 2
-    }));
-
+  buildNodes() {
     const spacing = Math.max(52, Math.round(this.width / 26));
     const cols = Math.ceil(this.width / spacing) + 1;
     const rows = Math.ceil(this.height / spacing) + 1;
@@ -71,18 +59,6 @@ class HeroAmbientAnimation {
   draw(time) {
     const ctx = this.ctx;
     ctx.clearRect(0, 0, this.width, this.height);
-
-    for (const orb of this.orbs) {
-      const y = orb.y + Math.sin(time * orb.drift + orb.offset) * 18;
-      const gradient = ctx.createRadialGradient(orb.x, y, 0, orb.x, y, orb.radius);
-      gradient.addColorStop(0, `rgba(230,0,0,${orb.alpha})`);
-      gradient.addColorStop(0.5, `rgba(230,0,0,${orb.alpha * 0.45})`);
-      gradient.addColorStop(1, 'rgba(230,0,0,0)');
-      ctx.fillStyle = gradient;
-      ctx.beginPath();
-      ctx.arc(orb.x, y, orb.radius, 0, Math.PI * 2);
-      ctx.fill();
-    }
 
     for (const node of this.nodes) {
       const shimmer = (Math.sin(time * node.drift + node.offset) + 1) / 2;
