@@ -16,25 +16,25 @@ class IndustrialGrid {
   }
   init() {
     this.nodes = []; this.connections = [];
-    const sp = 80, cols = Math.ceil(this.w / sp) + 2, rows = Math.ceil(this.h / sp) + 2;
+    const sp = 68, cols = Math.ceil(this.w / sp) + 2, rows = Math.ceil(this.h / sp) + 2;
     for (let i = 0; i < cols; i++) for (let j = 0; j < rows; j++) {
-      if (Math.random() > 0.4) this.nodes.push({
+      if (Math.random() > 0.18) this.nodes.push({
         x: i * sp + (Math.random() - 0.5) * 20, y: j * sp + (Math.random() - 0.5) * 20,
-        r: Math.random() * 2 + 1, pulse: Math.random() * Math.PI * 2,
-        speed: 0.01 + Math.random() * 0.02, active: Math.random() > 0.7
+        r: Math.random() * 2.2 + 1.2, pulse: Math.random() * Math.PI * 2,
+        speed: 0.015 + Math.random() * 0.025, active: Math.random() > 0.45
       });
     }
     for (let i = 0; i < this.nodes.length; i++) for (let j = i + 1; j < this.nodes.length; j++) {
       const dx = this.nodes[i].x - this.nodes[j].x, dy = this.nodes[i].y - this.nodes[j].y;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < sp * 1.5 && Math.random() > 0.5) this.connections.push({ a: i, b: j, dist });
+      if (dist < sp * 1.65 && Math.random() > 0.3) this.connections.push({ a: i, b: j, dist });
     }
-    for (let i = 0; i < 8; i++) this.spawnPulse();
+    for (let i = 0; i < 20; i++) this.spawnPulse();
   }
   spawnPulse() {
     if (!this.connections.length) return;
     const c = this.connections[Math.floor(Math.random() * this.connections.length)];
-    this.pulses.push({ conn: c, t: 0, speed: 0.005 + Math.random() * 0.01, fwd: Math.random() > 0.5 });
+    this.pulses.push({ conn: c, t: 0, speed: 0.01 + Math.random() * 0.014, fwd: Math.random() > 0.5 });
   }
   bindEvents() {
     let resizeTimer;
@@ -52,16 +52,16 @@ class IndustrialGrid {
       c.beginPath();
       if (Math.abs(a.x - b.x) > Math.abs(a.y - b.y)) { c.moveTo(a.x, a.y); c.lineTo(b.x, a.y); c.lineTo(b.x, b.y); }
       else { c.moveTo(a.x, a.y); c.lineTo(a.x, b.y); c.lineTo(b.x, b.y); }
-      c.strokeStyle = `rgba(230,0,0,${0.06 + g * 0.15})`; c.lineWidth = 0.5 + g; c.stroke();
+      c.strokeStyle = `rgba(230,0,0,${0.11 + g * 0.2})`; c.lineWidth = 0.8 + g * 1.1; c.stroke();
     }
     for (const n of this.nodes) {
       n.pulse += n.speed;
       const dm = Math.sqrt((n.x - this.mouse.x) ** 2 + (n.y - this.mouse.y) ** 2);
       const g = Math.max(0, 1 - dm / 180);
-      const al = n.active ? 0.3 + Math.sin(n.pulse) * 0.2 + g * 0.4 : 0.08 + g * 0.2;
+      const al = n.active ? 0.42 + Math.sin(n.pulse) * 0.22 + g * 0.42 : 0.14 + g * 0.24;
       c.beginPath(); c.arc(n.x, n.y, n.r + g * 2, 0, Math.PI * 2);
       c.fillStyle = `rgba(230,0,0,${al})`; c.fill();
-      if (n.active || g > 0.3) { c.beginPath(); c.arc(n.x, n.y, n.r + 4 + g * 4, 0, Math.PI * 2); c.fillStyle = `rgba(230,0,0,${al * 0.15})`; c.fill(); }
+      if (n.active || g > 0.25) { c.beginPath(); c.arc(n.x, n.y, n.r + 5 + g * 5, 0, Math.PI * 2); c.fillStyle = `rgba(230,0,0,${al * 0.22})`; c.fill(); }
     }
     for (let i = this.pulses.length - 1; i >= 0; i--) {
       const p = this.pulses[i]; p.t += p.speed;
@@ -69,10 +69,10 @@ class IndustrialGrid {
       const a = this.nodes[p.conn.a], b = this.nodes[p.conn.b];
       const t = p.fwd ? p.t : 1 - p.t;
       const x = a.x + (b.x - a.x) * t, y = a.y + (b.y - a.y) * t;
-      c.beginPath(); c.arc(x, y, 3, 0, Math.PI * 2); c.fillStyle = `rgba(230,0,0,${0.8 - p.t * 0.5})`; c.fill();
-      c.beginPath(); c.arc(x, y, 8, 0, Math.PI * 2); c.fillStyle = `rgba(230,0,0,${0.15 - p.t * 0.1})`; c.fill();
+      c.beginPath(); c.arc(x, y, 3.8, 0, Math.PI * 2); c.fillStyle = `rgba(255,30,30,${0.95 - p.t * 0.45})`; c.fill();
+      c.beginPath(); c.arc(x, y, 10, 0, Math.PI * 2); c.fillStyle = `rgba(255,40,40,${0.22 - p.t * 0.12})`; c.fill();
     }
-    if (Math.random() > 0.97) this.spawnPulse();
+    if (Math.random() > 0.84) this.spawnPulse();
     requestAnimationFrame(() => this.animate());
   }
 }

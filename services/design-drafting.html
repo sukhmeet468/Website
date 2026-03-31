@@ -11,12 +11,108 @@
   <meta property="og:description" content="Electrical schematics, P&IDs, panel layouts, and GA drawings using AutoCAD Electrical and EPLAN. Industrial design and drafting in Winnipeg, MB.">
   <meta property="og:url" content="https://www.indusautomation.ca/services/design-drafting.html">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/svg+xml" href="/Website/assets/images/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/Website/assets/images/icon.jpg">
+  <link rel="apple-touch-icon" href="/Website/assets/images/icon.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/Website/css/style.css">
   <link rel="stylesheet" href="/Website/css/responsive.css">
+  <style>
+    /* Shared header/footer shell */
+    .action-bar {
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: var(--red);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      height: 42px;
+    }
+    .action-bar a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex: 1;
+      max-width: 300px;
+      padding: 0 20px;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .action-bar a:first-child { border-right: 1px solid rgba(255, 255, 255, 0.2); }
+    .action-bar a:hover { background: var(--red-dark); }
+    .action-bar svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; }
+
+    .page-hero { padding-top: calc(var(--nav-height) + 42px + 80px); }
+
+    .nav-item { position: relative; }
+    .nav-item > .nav-link { display: flex; align-items: center; gap: 4px; }
+    .nav-item > .nav-link::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid currentColor;
+      transition: transform 0.2s;
+    }
+    .nav-item:hover > .nav-link::after { transform: rotate(180deg); }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 280px;
+      background: rgba(13, 13, 13, 0.98);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      padding: 8px 0;
+      z-index: 1001;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+    .nav-item:hover .dropdown { display: block; }
+    .dropdown a {
+      display: block;
+      padding: 10px 24px;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .dropdown a:hover {
+      color: #fff;
+      background: rgba(230, 0, 0, 0.08);
+      padding-left: 28px;
+    }
+
+    @media (max-width: 768px) {
+      .dropdown {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding-left: 16px;
+      }
+      .nav-item:hover .dropdown { display: block; }
+      .action-bar a { font-size: 11px; letter-spacing: 1px; }
+    }
+  </style>
+
 </head>
 <body>
 
@@ -24,15 +120,43 @@
 <nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
   <div class="container">
     <a href="/Website/" class="nav-logo" aria-label="Indus Automation - Home">
-      <div class="nav-logo-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-      </div>
-      <div class="nav-logo-text">Indus<small>Automation Inc.</small></div>
+      <img src="/Website/assets/images/indus-logo.jpg" alt="Indus Automation Inc." style="height:40px;width:auto;">
     </a>
     <div class="nav-links" id="navLinks" role="menubar">
       <a href="/Website/" class="nav-link" role="menuitem">Home</a>
-      <a href="/Website/services.html" class="nav-link" role="menuitem">Services</a>
-      <a href="/Website/specialties.html" class="nav-link" role="menuitem">Specialties</a>
+
+      <div class="nav-item">
+        <a href="/Website/services.html" class="nav-link" role="menuitem">Services</a>
+        <div class="dropdown">
+          <a href="/Website/services/control-panels.html">Control Panel Design &amp; Fabrication</a>
+          <a href="/Website/services/plc-programming.html">PLC/HMI/SCADA Programming</a>
+          <a href="/Website/services/design-drafting.html">Design &amp; Drafting</a>
+          <a href="/Website/services/commissioning.html">Commissioning</a>
+          <a href="/Website/services/troubleshooting.html">Troubleshooting &amp; Maintenance</a>
+          <a href="/Website/services/documentation.html">Documentation</a>
+          <a href="/Website/services/procurement.html">Procurement</a>
+          <a href="/Website/services/instrumentation.html">Instrumentation Services</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="/Website/specialties.html" class="nav-link" role="menuitem">Specialties</a>
+        <div class="dropdown">
+          <a href="/Website/specialties/agriculture.html">Agriculture &amp; Grain Handling</a>
+          <a href="/Website/specialties/breweries.html">Breweries</a>
+          <a href="/Website/specialties/food-processing.html">Food Processing</a>
+          <a href="/Website/specialties/metal-processing.html">Metal Processing</a>
+          <a href="/Website/specialties/mining.html">Mining</a>
+          <a href="/Website/specialties/refrigeration.html">Industrial Refrigeration</a>
+          <a href="/Website/specialties/water-treatment.html">Water &amp; Wastewater</a>
+          <a href="/Website/specialties/utilities.html">Utilities &amp; Power</a>
+          <a href="/Website/specialties/building-controls.html">Building Controls</a>
+          <a href="/Website/specialties/manufacturing-oem.html">Manufacturing &amp; OEM</a>
+          <a href="/Website/specialties/heavy-industry.html">Heavy Industry</a>
+          <a href="/Website/specialties/custom-apps.html">Custom Applications</a>
+        </div>
+      </div>
+
       <a href="/Website/projects.html" class="nav-link" role="menuitem">Projects</a>
       <a href="/Website/faq.html" class="nav-link" role="menuitem">FAQ</a>
       <a href="/Website/partners.html" class="nav-link" role="menuitem">Partners</a>
@@ -43,7 +167,16 @@
     </button>
   </div>
 </nav>
-
+<div class="action-bar">
+  <a href="mailto:info@indusautomation.com">
+    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    Email Us
+  </a>
+  <a href="tel:+12049430050">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call 204-943-0050
+  </a>
+</div>
 <main id="main-content">
   <section class="page-hero">
     <div class="container">
@@ -118,6 +251,12 @@
           </a>
           <a href="https://g.page/r/CekU074ShzHvEBM/review" target="_blank" rel="noopener" aria-label="Google Reviews" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
             <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/1C8xju6A15/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M22 12.07C22 6.477 17.523 2 12 2S2 6.477 2 12.07C2 17.123 5.657 21.31 10.438 22v-7.07H7.898v-2.86h2.54V9.845c0-2.52 1.492-3.913 3.777-3.913 1.094 0 2.238.197 2.238.197v2.475h-1.26c-1.243 0-1.63.776-1.63 1.572v1.894h2.773l-.443 2.86h-2.33V22C18.343 21.31 22 17.123 22 12.07z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/indusautomationinc?igsh=MWU5ZzJwOWZnY3Z1eQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.756 5.756 0 0 1 22 7.75v8.5A5.756 5.756 0 0 1 16.25 22h-8.5A5.756 5.756 0 0 1 2 16.25v-8.5A5.756 5.756 0 0 1 7.75 2zm0 1.8A3.954 3.954 0 0 0 3.8 7.75v8.5a3.954 3.954 0 0 0 3.95 3.95h8.5a3.954 3.954 0 0 0 3.95-3.95v-8.5a3.954 3.954 0 0 0-3.95-3.95h-8.5zm8.95 1.35a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/></svg>
           </a>
         </div>
       </div>

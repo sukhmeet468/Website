@@ -3,26 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Indus Automation Inc. — Expert Control Panel Manufacturing &amp; PLC Programming | Winnipeg, MB</title>
-  <meta name="description" content="CSA-certified industrial automation solutions for Winnipeg and beyond. Custom control panel design &amp; fabrication, PLC/HMI/SCADA programming, commissioning, and 24/7 support. Siemens Solution Provider.">
-  <meta name="keywords" content="control panels, PLC programming, industrial automation, Winnipeg, Manitoba, CSA certified, Siemens, HMI, SCADA, motor control centres">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <title>Indus Automation | Expert CSA Control Panel Manufacturing & PLC Programming</title>
+  <meta name="description" content="Indus Automation Inc. — CSA-certified control panel manufacturing & PLC/HMI/SCADA programming in Winnipeg, MB. 15+ years engineering smarter automation. Siemens Solution Provider. 24/7 support.">
+  <meta name="keywords" content="control panel manufacturing, PLC programming, CSA certified panels, industrial automation Winnipeg, HMI, SCADA, motor control centres, Siemens, Allen-Bradley, Manitoba">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://sukhmeet468.github.io/Website/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Indus Automation Inc.">
-  <meta property="og:title" content="Expert Control Panel Manufacturing &amp; PLC Programming — Indus Automation">
-  <meta property="og:description" content="CSA-certified industrial automation solutions. Custom control panels, PLC programming, and turnkey solutions for your industry.">
+  <meta property="og:title" content="Indus Automation | Expert CSA Control Panel Manufacturing & PLC Programming">
+  <meta property="og:description" content="Precision-engineered control systems. Custom PLC programming and CSA-certified control panels. Serving North America from Winnipeg, MB.">
   <meta property="og:url" content="https://sukhmeet468.github.io/Website/">
-  <meta property="og:image" content="https://sukhmeet468.github.io/Website/assets/images/og-home.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://sukhmeet468.github.io/Website/assets/images/hero-bg-1.webp">
   <meta property="og:locale" content="en_CA">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="geo.region" content="CA-MB">
   <meta name="geo.placename" content="Winnipeg">
-  <meta name="geo.position" content="49.8989;-97.1378">
-  <link rel="icon" type="image/svg+xml" href="/Website/assets/images/favicon.svg">
-  <link rel="apple-touch-icon" href="/Website/assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/Website/assets/images/icon.jpg">
+  <link rel="apple-touch-icon" href="/Website/assets/images/icon.jpg">
   <link rel="manifest" href="/Website/manifest.json">
   <meta name="theme-color" content="#0d0d0d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,60 +27,290 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/Website/css/style.css">
   <link rel="stylesheet" href="/Website/css/responsive.css">
-  <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE">
   <style>
-    /* ─── HOME-SPECIFIC STYLES ─── */
-    .hero-canvas-wrap { position:absolute; inset:0; z-index:1; }
+    /* ═══ STICKY ACTION BAR ═══ */
+    .action-bar {
+      position:fixed; top:var(--nav-height); left:0; right:0; z-index:999;
+      background:var(--red); display:flex; justify-content:center; gap:0;
+      border-bottom:1px solid rgba(0,0,0,0.3); height:42px;
+    }
+    .action-bar a {
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      flex:1; max-width:300px; padding:0 20px; font-family:var(--font-heading);
+      font-size:13px; font-weight:600; letter-spacing:2px; text-transform:uppercase;
+      color:#fff; transition:background 0.2s; text-decoration:none;
+    }
+    .action-bar a:first-child { border-right:1px solid rgba(255,255,255,0.2); }
+    .action-bar a:hover { background:var(--red-dark); }
+    .action-bar svg { width:16px; height:16px; stroke:#fff; fill:none; stroke-width:2; }
+
+    /* Push content below nav+action bar */
+    .hero { padding-top:calc(var(--nav-height) + 42px); }
+    .page-hero { padding-top:calc(var(--nav-height) + 42px + 80px); }
+
+    /* ═══ NAV DROPDOWNS ═══ */
+    .nav-item { position:relative; }
+    .nav-item > .nav-link { display:flex; align-items:center; gap:4px; }
+    .nav-item > .nav-link::after {
+      content:''; width:0; height:0; border-left:4px solid transparent;
+      border-right:4px solid transparent; border-top:4px solid currentColor;
+      transition:transform 0.2s;
+    }
+    .nav-item:hover > .nav-link::after { transform:rotate(180deg); }
+    .dropdown {
+      display:none; position:absolute; top:100%; left:0; min-width:280px;
+      background:rgba(13,13,13,0.98); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px);
+      border:1px solid var(--border); padding:8px 0; z-index:1001;
+      box-shadow:0 12px 40px rgba(0,0,0,0.5);
+    }
+    .nav-item:hover .dropdown { display:block; }
+    .dropdown a {
+      display:block; padding:10px 24px; font-family:var(--font-heading);
+      font-size:13px; font-weight:500; letter-spacing:1px; text-transform:uppercase;
+      color:var(--text-secondary); transition:all 0.2s; text-decoration:none;
+    }
+    .dropdown a:hover { color:#fff; background:rgba(230,0,0,0.08); padding-left:28px; }
+
+    /* ═══ HERO — Full-width crossfading images + canvas overlay ═══ */
+    .hero {
+      position:relative; min-height:100vh; display:flex; align-items:center;
+      overflow:hidden;
+    }
+    .hero-slideshow {
+      position:absolute; inset:0; z-index:0;
+    }
+    .hero-slideshow img {
+      position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+      opacity:0; animation:heroFade 12s infinite; filter:brightness(1.14) contrast(1.08) saturate(1.04);
+    }
+    .hero-slideshow img:nth-child(2) {
+      object-position:center 42%;
+      transform:scale(1.08);
+      filter:brightness(1.12) contrast(1.12) saturate(1.08);
+    }
+    .hero-slideshow img:first-child {
+      animation:heroFadeMuted 12s infinite;
+    }
+    .hero-slideshow img:nth-child(2) { animation-delay:6s; }
+    @keyframes heroFade {
+      0% { opacity:0; }
+      8% { opacity:0.5; }
+      50% { opacity:0.5; }
+      58% { opacity:0; }
+      100% { opacity:0; }
+    }
+    @keyframes heroFadeMuted {
+      0% { opacity:0; }
+      8% { opacity:0.5; }
+      50% { opacity:0.5; }
+      58% { opacity:0; }
+      100% { opacity:0; }
+    }
+    .hero-overlay {
+      position:absolute; inset:0; z-index:1;
+      background:linear-gradient(135deg, rgba(13,13,13,0.4) 0%, rgba(13,13,13,0.22) 40%, rgba(13,13,13,0.09) 100%);
+    }
+    .hero-canvas-wrap {
+      position:absolute; inset:0; z-index:2;
+    }
     .hero-canvas-wrap canvas { width:100%; height:100%; }
+    .hero .container {
+      position:relative; z-index:3;
+      display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+    }
+    .hero-stats-col { display:flex; justify-content:flex-end; }
+    .hero-stats {
+      gap:10px;
+      background:transparent;
+      border:none;
+    }
+    .hero-stat {
+      background:linear-gradient(180deg, rgba(20,20,20,0.58), rgba(20,20,20,0.34));
+      border:1px solid rgba(255,255,255,0.08);
+      -webkit-backdrop-filter:blur(8px);
+      backdrop-filter:blur(8px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    /* ═══ SHOWCASE STRIP (hero-bg-2 beside text) ═══ */
+    .showcase-section {
+      display:grid; grid-template-columns:1.2fr 0.8fr; gap:0;
+      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    }
+    .showcase-image { position:relative; min-height:400px; overflow:hidden; }
+    .showcase-image img { width:100%; height:100%; object-fit:cover; filter:brightness(0.92); }
+    .showcase-image::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(to right, transparent 60%, var(--bg-secondary) 100%);
+    }
+    .showcase-text {
+      background:var(--bg-secondary); padding:80px 60px; display:flex;
+      flex-direction:column; justify-content:center;
+    }
+    .showcase-text h2 {
+      font-family:var(--font-heading); font-size:clamp(28px,4vw,42px);
+      font-weight:700; text-transform:uppercase; line-height:1.1; margin-bottom:20px;
+    }
+    .showcase-text h2 .red { color:var(--red); }
+    .showcase-text p { font-size:17px; color:var(--text-secondary); line-height:1.8; margin-bottom:24px; }
+
+    /* ═══ BRAND CAROUSEL ═══ */
+    .brand-carousel { overflow:hidden; position:relative; margin-top:40px; padding:30px 0; }
+    .brand-carousel::before,.brand-carousel::after { content:''; position:absolute; top:0; bottom:0; width:100px; z-index:2; pointer-events:none; }
+    .brand-carousel::before { left:0; background:linear-gradient(to right,var(--bg-secondary),transparent); }
+    .brand-carousel::after { right:0; background:linear-gradient(to left,var(--bg-secondary),transparent); }
+    .brand-track { display:flex; gap:24px; align-items:center; width:max-content; animation:scrollBrands 32s linear infinite; }
+    .brand-track:hover { animation-play-state:paused; }
+    .brand-track a {
+      display:flex; align-items:center; justify-content:center; flex:0 0 calc((var(--max-width) - 64px - 48px) / 3);
+      width:calc((var(--max-width) - 64px - 48px) / 3); min-height:160px; padding:30px;
+      background:var(--bg-card); border:1px solid var(--border); opacity:0.8; filter:brightness(1.08); transition:0.3s;
+    }
+    .brand-track a:hover { opacity:1; filter:brightness(1); transform:translateY(-4px); border-color:var(--red); }
+    .brand-track a img { width:100%; height:92px; max-width:260px; object-fit:contain; }
+    @media (max-width: 900px) {
+      .brand-track a { flex-basis:calc((100vw - 64px - 24px) / 2); width:calc((100vw - 64px - 24px) / 2); min-height:148px; }
+      .brand-track a img { height:82px; }
+    }
+    @media (max-width: 560px) {
+      .brand-carousel::before,.brand-carousel::after { width:48px; }
+      .brand-track { gap:16px; }
+      .brand-track a { flex-basis:calc(100vw - 64px); width:calc(100vw - 64px); min-height:132px; padding:22px; }
+      .brand-track a img { height:72px; max-width:220px; }
+    }
+    @keyframes scrollBrands { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    /* ═══ VALUES ═══ */
     .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--border); border:1px solid var(--border); margin-top:40px; }
-    .value-card { background:var(--bg-card); padding:40px 32px; transition:var(--transition); position:relative; overflow:hidden; }
-    .value-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:0; background:var(--red); transition:height var(--transition); }
+    .value-card { background:var(--bg-card); padding:40px 32px; position:relative; overflow:hidden; opacity:0; transform:translateY(30px); transition:background 0.3s; }
+    .value-card.animate-in { animation:fadeSlideUp 0.6s ease forwards; }
+    .value-card:nth-child(2).animate-in { animation-delay:.15s; }
+    .value-card:nth-child(3).animate-in { animation-delay:.3s; }
+    .value-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:0; background:var(--red); transition:height 0.3s; }
     .value-card:hover { background:var(--bg-card-hover); }
     .value-card:hover::before { height:100%; }
     .value-card h3 { font-family:var(--font-heading); font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px; }
     .value-card p { font-size:14px; color:var(--text-secondary); line-height:1.7; }
     .value-icon { width:48px; height:48px; background:rgba(230,0,0,0.08); display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
     .value-icon svg { width:24px; height:24px; stroke:var(--red); fill:none; stroke-width:1.5; }
+
+    /* ═══ WHY GRID ═══ */
     .why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--border); border:1px solid var(--border); margin-top:40px; counter-reset:why; }
-    .why-card { background:var(--bg-card); padding:36px 28px; transition:var(--transition); }
+    .why-card { background:var(--bg-card); padding:36px 28px; transition:0.3s; }
     .why-card:hover { background:var(--bg-card-hover); }
     .why-card::before { counter-increment:why; content:counter(why,decimal-leading-zero); font-family:var(--font-heading); font-size:36px; font-weight:800; color:rgba(230,0,0,0.12); display:block; margin-bottom:12px; }
     .why-card h4 { font-family:var(--font-heading); font-size:16px; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
     .why-card p { font-size:13px; color:var(--text-muted); line-height:1.6; }
-    .brands-strip { display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:center; margin-top:40px; padding:40px 0; }
-    .brand-logo { height:44px; opacity:0.5; filter:grayscale(1) brightness(2); transition:var(--transition); }
-    .brand-logo:hover { opacity:1; filter:none; }
-    .certs-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:40px; }
-    .cert-item { display:flex; gap:16px; align-items:flex-start; padding:24px; background:var(--bg-card); border:1px solid var(--border); transition:var(--transition); }
+
+    /* ═══ CERTS ═══ */
+    .certs-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:24px; }
+    .cert-item { display:flex; gap:16px; align-items:flex-start; padding:20px; background:var(--bg-card); border:1px solid var(--border); transition:0.3s; }
+    .cert-item-link { color:inherit; text-decoration:none; }
     .cert-item:hover { border-color:var(--red); }
-    .cert-icon { width:40px; min-width:40px; height:40px; background:rgba(230,0,0,0.08); display:flex; align-items:center; justify-content:center; }
+    .cert-icon { width:48px; min-width:48px; height:48px; background:rgba(230,0,0,0.08); display:flex; align-items:center; justify-content:center; }
     .cert-icon svg { width:20px; height:20px; stroke:var(--red); fill:none; stroke-width:1.5; }
+    .cert-icon-brand { border:1px solid transparent; }
+    .cert-icon-brand svg { width:24px; height:24px; stroke:none; fill:currentColor; }
+    .cert-icon-siemens { background:rgba(0,157,154,0.08); border-color:rgba(0,157,154,0.2); color:#009d9a; }
+    .cert-icon-schneider { background:rgba(61,174,43,0.08); border-color:rgba(61,174,43,0.2); color:#3dae2b; }
+    .cert-icon-isn { background:rgba(26,115,232,0.08); border-color:rgba(26,115,232,0.22); color:#1a73e8; }
+    .cert-icon-csa { background:rgba(230,0,0,0.08); border-color:rgba(230,0,0,0.2); color:var(--red); }
+    .cert-icon-img {
+      width:34px;
+      height:34px;
+      object-fit:contain;
+      display:block;
+    }
+    .cert-link-note {
+      display:inline-block;
+      margin-top:6px;
+      font-size:12px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color:var(--red);
+      font-family:var(--font-heading);
+    }
     .cert-item h4 { font-family:var(--font-heading); font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:1px; }
     .cert-item p { font-size:13px; color:var(--text-muted); margin-top:4px; }
+
+    /* ═══ TESTIMONIALS ═══ */
     .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--border); border:1px solid var(--border); margin-top:40px; }
-    .testimonial-card { background:var(--bg-card); padding:36px 28px; }
+    .testimonial-card { background:var(--bg-card); padding:36px 28px; opacity:0; transform:translateY(30px); }
+    .testimonial-card.animate-in { animation:fadeSlideUp 0.6s ease forwards; }
+    .testimonial-card:nth-child(2).animate-in { animation-delay:.2s; }
+    .testimonial-card:nth-child(3).animate-in { animation-delay:.4s; }
     .testimonial-card .stars { color:var(--red); font-size:16px; letter-spacing:2px; margin-bottom:16px; }
     .testimonial-card h4 { font-family:var(--font-heading); font-size:16px; font-weight:600; margin-bottom:12px; color:var(--red); }
     .testimonial-card p { font-size:14px; color:var(--text-secondary); line-height:1.7; font-style:italic; }
-    @media(max-width:1024px) { .values-grid,.certs-grid { grid-template-columns:1fr 1fr; } .why-grid { grid-template-columns:1fr 1fr; } }
-    @media(max-width:768px) { .values-grid,.testimonials-grid,.certs-grid { grid-template-columns:1fr; } .why-grid { grid-template-columns:1fr; } }
+
+    @keyframes fadeSlideUp { 0%{opacity:0;transform:translateY(30px)} 100%{opacity:1;transform:translateY(0)} }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media(max-width:1024px) {
+      .hero .container { grid-template-columns:1fr; }
+      .hero-stats-col { display:none; }
+      .showcase-section { grid-template-columns:1fr; }
+      .showcase-image { min-height:300px; }
+      .showcase-text { padding:48px 32px; }
+      .values-grid,.certs-grid { grid-template-columns:1fr 1fr; }
+      .why-grid { grid-template-columns:1fr 1fr; }
+      .certs-section-grid { grid-template-columns:1fr !important; }
+    }
+    @media(max-width:768px) {
+      .values-grid,.testimonials-grid,.certs-grid { grid-template-columns:1fr; }
+      .why-grid { grid-template-columns:1fr; }
+      .dropdown { position:static; box-shadow:none; border:none; padding-left:16px; }
+      .nav-item:hover .dropdown { display:block; }
+      .action-bar a { font-size:11px; letter-spacing:1px; }
+    }
   </style>
 </head>
 <body>
 
+<!-- ═══ NAV with dropdowns ═══ -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
   <div class="container">
     <a href="/Website/" class="nav-logo" aria-label="Indus Automation - Home">
-      <div class="nav-logo-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-      </div>
-      <div class="nav-logo-text">Indus<small>Automation Inc.</small></div>
+      <img src="/Website/assets/images/indus-logo.jpg" alt="Indus Automation Inc." style="height:40px;width:auto;">
     </a>
     <div class="nav-links" id="navLinks" role="menubar">
       <a href="/Website/" class="nav-link" role="menuitem">Home</a>
-      <a href="/Website/services.html" class="nav-link" role="menuitem">Services</a>
-      <a href="/Website/specialties.html" class="nav-link" role="menuitem">Specialties</a>
+
+      <!-- SERVICES DROPDOWN -->
+      <div class="nav-item">
+        <a href="/Website/services.html" class="nav-link" role="menuitem">Services</a>
+        <div class="dropdown">
+          <a href="/Website/services/control-panels.html">Control Panel Design &amp; Fabrication</a>
+          <a href="/Website/services/plc-programming.html">PLC/HMI/SCADA Programming</a>
+          <a href="/Website/services/design-drafting.html">Design &amp; Drafting</a>
+          <a href="/Website/services/commissioning.html">Commissioning</a>
+          <a href="/Website/services/troubleshooting.html">Troubleshooting &amp; Maintenance</a>
+          <a href="/Website/services/documentation.html">Documentation</a>
+          <a href="/Website/services/procurement.html">Procurement</a>
+          <a href="/Website/services/instrumentation.html">Instrumentation Services</a>
+        </div>
+      </div>
+
+      <!-- SPECIALTIES DROPDOWN -->
+      <div class="nav-item">
+        <a href="/Website/specialties.html" class="nav-link" role="menuitem">Specialties</a>
+        <div class="dropdown">
+          <a href="/Website/specialties/agriculture.html">Agriculture &amp; Grain Handling</a>
+          <a href="/Website/specialties/breweries.html">Breweries</a>
+          <a href="/Website/specialties/food-processing.html">Food Processing</a>
+          <a href="/Website/specialties/metal-processing.html">Metal Processing</a>
+          <a href="/Website/specialties/mining.html">Mining</a>
+          <a href="/Website/specialties/refrigeration.html">Industrial Refrigeration</a>
+          <a href="/Website/specialties/water-treatment.html">Water &amp; Wastewater</a>
+          <a href="/Website/specialties/utilities.html">Utilities &amp; Power</a>
+          <a href="/Website/specialties/building-controls.html">Building Controls</a>
+          <a href="/Website/specialties/manufacturing-oem.html">Manufacturing &amp; OEM</a>
+          <a href="/Website/specialties/heavy-industry.html">Heavy Industry</a>
+          <a href="/Website/specialties/custom-apps.html">Custom Applications</a>
+        </div>
+      </div>
+
       <a href="/Website/projects.html" class="nav-link" role="menuitem">Projects</a>
       <a href="/Website/faq.html" class="nav-link" role="menuitem">FAQ</a>
       <a href="/Website/partners.html" class="nav-link" role="menuitem">Partners</a>
@@ -95,27 +322,43 @@
   </div>
 </nav>
 
+<!-- ═══ STICKY ACTION BAR (email + call) ═══ -->
+<div class="action-bar">
+  <a href="mailto:info@indusautomation.com">
+    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    Email Us
+  </a>
+  <a href="tel:+12049430050">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call 204-943-0050
+  </a>
+</div>
+
 <main id="main-content">
 
-  <!-- ═══ SECTION 1: HERO with animated canvas ═══ -->
+  <!-- ═══ HERO — crossfading images + canvas overlay + content ═══ -->
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-slideshow">
+      <img src="/Website/assets/images/hero-bg-1.webp" alt="Industrial control panels">
+      <img src="/Website/assets/images/hero-bg-2.webp" alt="Control panel close-up">
+    </div>
+    <div class="hero-overlay"></div>
     <div class="hero-canvas-wrap"><canvas id="heroCanvas"></canvas></div>
     <div class="hero-grid-overlay"></div>
-    <div class="container" style="position:relative;z-index:2;">
+    <div class="container">
       <div class="hero-content">
         <div class="hero-badge"><span class="dot"></span> Winnipeg, Manitoba</div>
-        <h1>Expert Control<br>Panel Manufacturing<br>&amp; <span class="red">PLC Programming</span></h1>
-        <p class="hero-desc">CSA-certified industrial automation solutions for Winnipeg and beyond. Discover what control panels and PLC programming advantages we can bring to your business.</p>
+        <h1>Where <span class="red">Precision</span><br>Meets<br>Performance</h1>
+        <p class="hero-desc">CSA-certified control panels and PLC programming trusted by industry leaders across North America. 15+ years engineering smarter automation for Canada's leading industries.</p>
         <div class="hero-actions">
           <a href="/Website/services.html" class="btn btn-primary btn-arrow">See Services</a>
           <a href="/Website/contact.html" class="btn btn-outline">Request a Quote</a>
         </div>
       </div>
-      <div class="hero-visual">
+      <div class="hero-stats-col">
         <div class="hero-stats">
           <div class="hero-stat"><div class="hero-stat-number">CSA</div><div class="hero-stat-label">Certified Panels</div></div>
-          <div class="hero-stat"><div class="hero-stat-number">24/7</div><div class="hero-stat-label">Emergency Support</div></div>
+          <div class="hero-stat"><div class="hero-stat-number">TURNKEY</div><div class="hero-stat-label">Project Delivery</div></div>
           <div class="hero-stat"><div class="hero-stat-number">15+</div><div class="hero-stat-label">Years Experience</div></div>
           <div class="hero-stat"><div class="hero-stat-number">100%</div><div class="hero-stat-label">In-House Capability</div></div>
         </div>
@@ -123,7 +366,20 @@
     </div>
   </section>
 
-  <!-- ═══ SECTION 2: EXPERIENCE / ABOUT ═══ -->
+  <!-- ═══ SHOWCASE — hero-bg-2 beside text ═══ -->
+  <div class="showcase-section">
+    <div class="showcase-image">
+      <img src="/Website/assets/images/home-specialities-3.jpg" alt="Control panel switchgear close-up — Indus Automation" loading="lazy">
+    </div>
+    <div class="showcase-text">
+      <span class="section-label">Get Inspired</span>
+      <h2>Automation That Works<br>as Hard as <span class="red">You Do</span></h2>
+      <p>Custom control panels, expert programming, and turnkey solutions for your industry. Discover what control panels and PLC programming advantages we can bring to your business.</p>
+      <a href="/Website/specialties.html" class="btn btn-primary btn-arrow">Explore Our Specialties</a>
+    </div>
+  </div>
+
+  <!-- ═══ EXPERIENCE / ABOUT ═══ -->
   <section class="intro section-padding">
     <div class="container">
       <div class="intro-text">
@@ -131,195 +387,131 @@
         <h2 class="section-title">Experience Expertise<br>You Can Trust</h2>
         <div class="divider"></div>
         <p>Indus Automation is a trusted provider of advanced control panel systems and PLC programming. With years of experience across industries, our work is rooted in precision, innovation, and reliability.</p>
-        <p>Learn more about how we bring automation to life — and why businesses across Winnipeg and beyond count on us. From concept and design to fabrication, programming, and commissioning, we provide end-to-end automation solutions tailored to your application and industry.</p>
-        <a href="/Website/services.html" class="btn btn-outline btn-arrow" style="margin-top:24px;">About Us</a>
+        <p>From concept and design to fabrication, programming, and commissioning, we provide end-to-end automation solutions tailored to your application and industry.</p>
       </div>
       <div class="intro-features">
-        <div class="intro-feature fade-up">
-          <div class="intro-feature-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-          <div><h4>PLC, HMI &amp; SCADA</h4><p>Programming for all major platforms — Allen-Bradley, Siemens, Omron, Schneider — tested through in-house FAT.</p></div>
-        </div>
-        <div class="intro-feature fade-up stagger-1">
-          <div class="intro-feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-          <div><h4>Control Panel Fabrication</h4><p>CSA Group-certified and approved. MCCs, VFD panels, PLC cabinets, operator consoles — all built in-house.</p></div>
-        </div>
-        <div class="intro-feature fade-up stagger-2">
-          <div class="intro-feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-          <div><h4>24-Hour Emergency Support</h4><p>When downtime hits, we respond. One-year parts and labour warranty on all new panels plus ongoing service.</p></div>
-        </div>
+        <div class="intro-feature fade-up"><div class="intro-feature-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><h4>PLC, HMI &amp; SCADA</h4><p>Allen-Bradley, Siemens, Omron, Schneider — tested through in-house FAT.</p></div></div>
+        <div class="intro-feature fade-up stagger-1"><div class="intro-feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><h4>Control Panel Fabrication</h4><p>CSA Group-certified. MCCs, VFD panels, PLC cabinets — all built in-house.</p></div></div>
+        <div class="intro-feature fade-up stagger-2"><div class="intro-feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><h4>Turnkey Project Delivery</h4><p>From design through commissioning, we keep projects coordinated, efficient, and field-ready.</p></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ SECTION 3: CORE VALUES ═══ -->
+  <!-- ═══ CORE VALUES — animated ═══ -->
   <section class="section-padding" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="container">
       <span class="section-label">What Drives Us</span>
-      <h2 class="section-title">Building Smarter, Safer, and<br>More Reliable Automation Systems</h2>
-      <p class="section-desc">Our core values drive precision, innovation &amp; trust in every project we deliver.</p>
-      <div class="values-grid">
-        <div class="value-card fade-up">
-          <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Integrity</h3>
-          <p>We uphold the highest standards of honesty, transparency, and accountability. Every project, from PLC programming to custom control panel fabrication, is executed with ethical responsibility and client trust at the core.</p>
-        </div>
-        <div class="value-card fade-up stagger-1">
-          <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-          <h3>Quality &amp; Precision</h3>
-          <p>We obsess over every detail — delivering reliable, precision-built solutions tailored to your unique needs. Each panel is built to CSA standards, thoroughly tested, and field-proven for long-term performance. Our focus is 100% on client satisfaction.</p>
-        </div>
-        <div class="value-card fade-up stagger-2">
-          <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-          <h3>Safety First</h3>
-          <p>We adhere to rigorous safety protocols across all projects. With CSA Group approvals and Red Seal-certified electricians, your systems are engineered for safe operation from design through commissioning.</p>
-        </div>
+      <h2 class="section-title">Building Smarter, Safer<br>Automation Systems</h2>
+      <div class="values-grid" id="valuesGrid">
+        <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Integrity</h3><p>Highest standards of honesty, transparency, and accountability. Every project executed with ethical responsibility and client trust at the core.</p></div>
+        <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div><h3>Quality &amp; Precision</h3><p>We obsess over every detail. Each panel built to CSA standards, thoroughly tested, field-proven. Our focus is 100% on client satisfaction.</p></div>
+        <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h3>Safety First</h3><p>CSA Group approvals and Red Seal-certified electricians. Systems engineered for safe operation from design through commissioning.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ SECTION 4: WHY CHOOSE US ═══ -->
+  <!-- ═══ WHY CHOOSE US ═══ -->
   <section class="section-padding">
     <div class="container">
       <span class="section-label">Why Industry Leaders Choose Us</span>
-      <h2 class="section-title">Smart, Scalable &amp;<br>Certified Industrial Solutions</h2>
-      <p class="section-desc">We engineer powerful automation systems that drive performance, reliability, and results — tailored to your operations.</p>
+      <h2 class="section-title">Smart, Scalable &amp; Certified</h2>
       <div class="why-grid">
-        <div class="why-card fade-up"><h4>Innovative Solutions</h4><p>We design smarter, scalable control systems using modern automation technologies for seamless operations.</p></div>
-        <div class="why-card fade-up"><h4>Quality Unsurpassed</h4><p>Each panel is built to CSA standards, thoroughly tested, and field-proven for long-term performance.</p></div>
-        <div class="why-card fade-up"><h4>Trusted Problem Solvers</h4><p>From concept to commissioning, clients trust Indus for turnkey results that exceed expectations.</p></div>
-        <div class="why-card fade-up"><h4>End-to-End Delivery</h4><p>Design, fabrication, programming, commissioning, and ongoing support — all under one roof.</p></div>
+        <div class="why-card fade-up"><h4>Innovative Solutions</h4><p>Modern automation technologies for seamless operations.</p></div>
+        <div class="why-card fade-up"><h4>Quality Unsurpassed</h4><p>CSA standards, thorough testing, field-proven performance.</p></div>
+        <div class="why-card fade-up"><h4>Trusted Problem Solvers</h4><p>Turnkey results that exceed expectations.</p></div>
+        <div class="why-card fade-up"><h4>End-to-End Delivery</h4><p>Design to support — all under one roof.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ SECTION 5: BRAND PARTNERS ═══ -->
+  <!-- ═══ BRAND CAROUSEL ═══ -->
   <section class="section-padding" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="container" style="text-align:center;">
       <span class="section-label">Trusted Partners</span>
       <h2 class="section-title">Brands We Work With</h2>
-      <p class="section-desc" style="margin:0 auto;">Some of the high-quality services we provide are made possible by the following industry-leading brands.</p>
-      <div class="brands-strip">
-        <!-- Replace with actual brand logos in /assets/images/brands/ -->
-        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">ABB</div>
-        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Siemens</div>
-        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Allen-Bradley</div>
-        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Schneider</div>
-        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Eaton</div>
-        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Omron</div>
-        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Honeywell</div>
-        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">GE</div>
-        <div style="padding:16px 28px;background:var(--bg-card);border:1px solid var(--border);font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Benshaw</div>
+      <div class="brand-carousel">
+        <div class="brand-track">
+          <a href="http://new.abb.com/" target="_blank" rel="noopener"><img src="/Website/assets/images/brands/abb.png" alt="ABB"></a>
+          <a href="http://www.benshaw.com/home/" target="_blank" rel="noopener"><img src="/Website/assets/images/brands/benshaw.png" alt="Benshaw"></a>
+          <a href="http://www.eatoncanada.ca/" target="_blank" rel="noopener"><img src="/Website/assets/images/brands/eaton.png" alt="Eaton"></a>
+          <a href="https://www.ge.com/ca/en" target="_blank" rel="noopener"><img src="/Website/assets/images/brands/ge.png" alt="GE"></a>
+          <a href="https://www.schneider-electric.ca/en/" target="_blank" rel="noopener"><img src="/Website/assets/images/brands/schneider.png" alt="Schneider Electric"></a>
+          <a href="https://www.honeywell.com/" target="_blank" rel="noopener"><img src="/Website/assets/images/brands/honeywell.png" alt="Honeywell"></a>
+          <a href="http://www.omron.ca/" target="_blank" rel="noopener"><img src="/Website/assets/images/brands/omron.png" alt="Omron"></a>
+          <a href="https://ab.rockwellautomation.com/" target="_blank" rel="noopener"><img src="/Website/assets/images/brands/rockwell.png" alt="Rockwell / Allen-Bradley"></a>
+          <a href="https://www.siemens.com/" target="_blank" rel="noopener"><img src="/Website/assets/images/brands/siemens.png" alt="Siemens"></a>
+          <a href="http://new.abb.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/Website/assets/images/brands/abb.png" alt="ABB"></a>
+          <a href="http://www.benshaw.com/home/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/Website/assets/images/brands/benshaw.png" alt="Benshaw"></a>
+          <a href="http://www.eatoncanada.ca/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/Website/assets/images/brands/eaton.png" alt="Eaton"></a>
+          <a href="https://www.ge.com/ca/en" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/Website/assets/images/brands/ge.png" alt="GE"></a>
+          <a href="https://www.schneider-electric.ca/en/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/Website/assets/images/brands/schneider.png" alt="Schneider Electric"></a>
+          <a href="https://www.honeywell.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/Website/assets/images/brands/honeywell.png" alt="Honeywell"></a>
+          <a href="http://www.omron.ca/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/Website/assets/images/brands/omron.png" alt="Omron"></a>
+          <a href="https://ab.rockwellautomation.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/Website/assets/images/brands/rockwell.png" alt="Rockwell / Allen-Bradley"></a>
+          <a href="https://www.siemens.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/Website/assets/images/brands/siemens.png" alt="Siemens"></a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ SECTION 6: CERTIFICATIONS ═══ -->
+  <!-- ═══ CERTIFICATIONS ═══ -->
   <section class="section-padding">
     <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
+      <div class="certs-section-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
         <div>
           <span class="section-label">Credentials</span>
-          <h2 class="section-title">Professional<br>Certifications</h2>
-          <div class="divider"></div>
-          <div class="certs-grid" style="margin-top:24px;">
-            <div class="cert-item fade-up">
-              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-              <div><h4>Siemens Solution Provider</h4><p>Equipped with knowledge of the latest SIMATIC automation components.</p></div>
-            </div>
-            <div class="cert-item fade-up">
-              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-              <div><h4>CSA Group Certified</h4><p>CSA Group-certified and approved panel manufacturer.</p></div>
-            </div>
-            <div class="cert-item fade-up">
-              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-              <div><h4>Red Seal Electrician</h4><p>Red Seal Certificate of Qualification — Canada-wide recognition.</p></div>
-            </div>
-            <div class="cert-item fade-up">
-              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-              <div><h4>Certified Engineering Technologist</h4><p>CET designation — engineering excellence.</p></div>
-            </div>
-            <div class="cert-item fade-up">
-              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-              <div><h4>Gold Seal — Manitoba</h4><p>Gold Seal Certificate of Qualification for electricians in Manitoba.</p></div>
-            </div>
-            <div class="cert-item fade-up">
-              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-              <div><h4>Gold Seal — Ontario</h4><p>Gold Seal Certificate of Qualification for electricians in Ontario.</p></div>
-            </div>
+          <h2 class="section-title">Certifications</h2><div class="divider"></div>
+          <div class="certs-grid">
+            <a class="cert-item cert-item-link fade-up" href="https://www.csagroup.org/" target="_blank" rel="noopener"><div class="cert-icon cert-icon-brand cert-icon-csa"><img class="cert-icon-img" src="/Website/assets/images/csa-icon.jpeg" alt="CSA Group logo"></div><div><h4>CSA Group Certified</h4><span class="cert-link-note">Visit CSA Group</span></div></a>
+            <a class="cert-item cert-item-link fade-up" href="https://www.siemens.com/en-us/company/insights/" target="_blank" rel="noopener"><div class="cert-icon cert-icon-brand cert-icon-siemens"><img class="cert-icon-img" src="/Website/assets/images/siemens-icon.png" alt="Siemens logo"></div><div><h4>Siemens Solution Provider</h4><span class="cert-link-note">Learn more</span></div></a>
+             <a class="cert-item cert-item-link fade-up" href="https://www.se.com/us/en/partners/system-integrators/industry/" target="_blank" rel="noopener"><div class="cert-icon cert-icon-brand cert-icon-schneider"><img class="cert-icon-img" src="/Website/assets/images/schneider-icon.png" alt="Schneider Electric logo"></div><div><h4>Schneider Electric Alliance</h4><p>Alliance Registered System Integrator Partner.</p><span class="cert-link-note">Learn More</span></div></a>
+            <a class="cert-item cert-item-link fade-up" href="https://www.isnetworld.com/en" target="_blank" rel="noopener"><div class="cert-icon cert-icon-brand cert-icon-isn"><img class="cert-icon-img" src="/Website/assets/images/isn-icon.png" alt="ISNetworld logo"></div><div><h4>ISNetworld Member Contractor</h4><p>Member contractor listed on ISNetworld.</p><span class="cert-link-note">Visit ISNetworld</span></div></a>
+            <div class="cert-item fade-up"><div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div><div><h4>Red Seal Electrician</h4></div></div>
+            <div class="cert-item fade-up"><div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div><div><h4>CET Designation</h4></div></div>
+            <div class="cert-item fade-up"><div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div><div><h4>Gold Seal — MB &amp; ON</h4></div></div>
           </div>
         </div>
         <div>
           <span class="section-label">Memberships</span>
-          <h2 class="section-title">Professional<br>Affiliations</h2>
-          <div class="divider"></div>
-          <div style="display:flex;flex-direction:column;gap:16px;margin-top:24px;">
-            <div class="cert-item fade-up">
-              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-              <div><h4>Manitoba Electrical League (MEL)</h4></div>
-            </div>
-            <div class="cert-item fade-up">
-              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-              <div><h4>CTTAM</h4><p>Certified Technicians &amp; Technologists Association of Manitoba</p></div>
-            </div>
-            <div class="cert-item fade-up">
-              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-              <div><h4>Canadian Construction Association (CCA)</h4></div>
-            </div>
-            <div class="cert-item fade-up">
-              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-              <div><h4>Winnipeg Construction Association (WCA)</h4></div>
-            </div>
-            <div class="cert-item fade-up">
-              <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-              <div><h4>Schneider Electric Alliance Partner</h4><p>Alliance Registered System Integrator Partner</p></div>
-            </div>
+          <h2 class="section-title">Affiliations</h2><div class="divider"></div>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;">
+            <div class="cert-item fade-up"><div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><h4>Manitoba Electrical League</h4></div></div>
+            <a class="cert-item cert-item-link fade-up" href="https://cttam.com/" target="_blank" rel="noopener"><div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><h4>The Certified Technicians &amp; Technologists Association of Manitoba (CTTAM)</h4><span class="cert-link-note">Visit CTTAM</span></div></a>
+            <a class="cert-item cert-item-link fade-up" href="https://www.cca-acc.com/" target="_blank" rel="noopener"><div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><h4>Canadian Construction Association (CCA)</h4><span class="cert-link-note">Visit CCA</span></div></a>
+            <a class="cert-item cert-item-link fade-up" href="https://winnipegconstruction.ca/" target="_blank" rel="noopener"><div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><h4>Winnipeg Construction Association (WCA)</h4><span class="cert-link-note">Visit WCA</span></div></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ SECTION 7: TESTIMONIALS ═══ -->
+  <!-- ═══ TESTIMONIALS ═══ -->
   <section class="section-padding" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="container">
       <span class="section-label">Client Feedback</span>
       <h2 class="section-title">What Our Clients Say</h2>
-      <p class="section-desc">Trusted by professionals across industries — from wastewater treatment to food processing, mining, and more.</p>
-      <div class="testimonials-grid">
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <h4>"Reliable, Custom Control Panels Built to Perfection!"</h4>
-          <p>Indus Automation built a custom PLC control panel for our wastewater treatment plant, and the results were incredible. From initial design to final commissioning, the entire process was smooth and professional. Their attention to detail, quality craftsmanship, and adherence to CSA standards really stood out.</p>
-        </div>
-        <div class="testimonial-card fade-up stagger-1">
-          <div class="stars">★★★★★</div>
-          <h4>"Their Programming Team Is Top Notch!"</h4>
-          <p>We needed complex HMI and SCADA integration for our food processing line, and Indus Automation delivered beyond expectations. Their team walked us through the programming logic and interface design step-by-step. The system is reliable, intuitive, and makes our daily operations far more efficient.</p>
-        </div>
-        <div class="testimonial-card fade-up stagger-2">
-          <div class="stars">★★★★★</div>
-          <h4>"Exceptional Support &amp; Fast Turnaround"</h4>
-          <p>We've worked with Indus on multiple projects — control panel upgrades, VFD integrations, and instrumentation setups. What sets them apart is their fast quoting, minimal lead times, and amazing technical support. Even when issues pop up post-installation, they're quick to troubleshoot and resolve them.</p>
-        </div>
+      <div class="testimonials-grid" id="testimonialsGrid">
+        <div class="testimonial-card"><div class="stars">★★★★★</div><h4>"Reliable, Custom Panels Built to Perfection!"</h4><p>Indus built a custom PLC panel for our wastewater plant. Attention to detail, craftsmanship, and CSA adherence really stood out.</p></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><h4>"Programming Team Is Top Notch!"</h4><p>Complex HMI and SCADA integration for our food processing line — delivered beyond expectations. Reliable, intuitive, efficient.</p></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><h4>"Exceptional Support &amp; Fast Turnaround"</h4><p>Multiple projects — panel upgrades, VFD integrations, instrumentation. Fast quoting, minimal lead times, amazing support.</p></div>
       </div>
       <div style="text-align:center;margin-top:40px;">
-        <p style="color:var(--text-secondary);margin-bottom:16px;">Already worked with us? Share your experience and help others make informed decisions!</p>
         <a href="https://g.page/r/CekU074ShzHvEBM/review" target="_blank" rel="noopener" class="btn btn-outline btn-arrow">Leave a Google Review</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══ CTA BAND ═══ -->
+  <!-- ═══ CTA ═══ -->
   <section class="cta-band">
     <div class="container">
       <h2>Ready to Automate?</h2>
-      <p>Get started on your control panel project today. From concept to commissioning — we deliver.</p>
+      <p>Get started on your control panel project today.</p>
       <a href="/Website/contact.html" class="btn btn-white btn-arrow">Request a Quote</a>
     </div>
   </section>
-
 </main>
 
+<!-- ═══ FOOTER ═══ -->
 <footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
@@ -332,6 +524,12 @@
           </a>
           <a href="https://g.page/r/CekU074ShzHvEBM/review" target="_blank" rel="noopener" aria-label="Google Reviews" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
             <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/1C8xju6A15/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M22 12.07C22 6.477 17.523 2 12 2S2 6.477 2 12.07C2 17.123 5.657 21.31 10.438 22v-7.07H7.898v-2.86h2.54V9.845c0-2.52 1.492-3.913 3.777-3.913 1.094 0 2.238.197 2.238.197v2.475h-1.26c-1.243 0-1.63.776-1.63 1.572v1.894h2.773l-.443 2.86h-2.33V22C18.343 21.31 22 17.123 22 12.07z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/indusautomationinc?igsh=MWU5ZzJwOWZnY3Z1eQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.756 5.756 0 0 1 22 7.75v8.5A5.756 5.756 0 0 1 16.25 22h-8.5A5.756 5.756 0 0 1 2 16.25v-8.5A5.756 5.756 0 0 1 7.75 2zm0 1.8A3.954 3.954 0 0 0 3.8 7.75v8.5a3.954 3.954 0 0 0 3.95 3.95h8.5a3.954 3.954 0 0 0 3.95-3.95v-8.5a3.954 3.954 0 0 0-3.95-3.95h-8.5zm8.95 1.35a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/></svg>
           </a>
         </div>
       </div>
@@ -373,7 +571,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Indus Automation Inc. All rights reserved.</span>
-      <span>CSA Certified &bull; Siemens Solution Provider &bull; Winnipeg, MB</span>
+      <span>CSA-certified industrial automation solutions for Winnipeg and beyond.</span>
     </div>
   </div>
 </footer>
@@ -384,6 +582,23 @@
 <script src="/Website/js/main.js" defer></script>
 <script src="/Website/js/hero-animation.js" defer></script>
 <script src="/Website/js/seo.js" defer></script>
-<script>document.addEventListener('DOMContentLoaded', () => injectStructuredData('home'));</script>
+<script>document.addEventListener('DOMContentLoaded',()=>injectStructuredData('home'));</script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  // Scroll-triggered animations for values & testimonials
+  ['#valuesGrid','#testimonialsGrid'].forEach(sel=>{
+    const el=document.querySelector(sel);
+    if(!el) return;
+    new IntersectionObserver((entries,obs)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.querySelectorAll('.value-card,.testimonial-card').forEach(c=>c.classList.add('animate-in'));
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.2}).observe(el);
+  });
+});
+</script>
 </body>
 </html>

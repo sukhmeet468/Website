@@ -225,6 +225,7 @@ All visual design is controlled through CSS custom properties in `style.css`:
 
 **Switching to a custom domain:** Replace all `/Website/` path prefixes back to `/` across all HTML files. Update canonical URLs and OG tags to the new domain.
 
+**Viewing the website locally:** Make sure you are in root folder such that you see Website/ folder. Run the command 'python -m http.server 8000' and then visit http://localhost:8000/Website/
 ---
 
 Built for **Indus Automation Inc.** — 1-442 Higgins Ave, Winnipeg, MB R3A 1S5 — [204-943-0050](tel:+12049430050)

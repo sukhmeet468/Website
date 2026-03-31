@@ -3,17 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Featured Projects — Indus Automation Inc. | Winnipeg, MB</title>
-  <meta name="description" content="Case studies from Indus Automation across water treatment, grain handling, machine automation, and food processing.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://sukhmeet468.github.io/Website/projects.html">
-  <link rel="icon" type="image/svg+xml" href="/Website/assets/images/icon.jpg">
-  <link rel="apple-touch-icon" href="/Website/assets/images/icon.jpg">
+  <title>Thank You — Indus Automation Inc.</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/Website/assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/Website/css/style.css">
   <link rel="stylesheet" href="/Website/css/responsive.css">
+
+  <!-- ═══ GUARD: Redirect if user didn't come from form submission ═══ -->
+  <script>
+    (function() {
+      if (sessionStorage.getItem('indus_form_submitted') !== 'true') {
+        window.location.replace('/Website/contact.html');
+      }
+      // Clear the flag immediately — refresh will trigger redirect above
+      sessionStorage.removeItem('indus_form_submitted');
+    })();
+  </script>
+
+  <style>
+    .thank-you-page {
+      min-height: calc(100vh - var(--nav-height) - 200px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      padding-top: calc(var(--nav-height) + 80px);
+    }
+    .thank-you-card {
+      text-align: center;
+      max-width: 600px;
+    }
+    .thank-you-icon {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 32px;
+      background: rgba(230, 0, 0, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: scaleIn 0.5s ease;
+    }
+    @keyframes scaleIn {
+      0% { transform: scale(0); opacity: 0; }
+      60% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .thank-you-icon svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--red);
+      fill: none;
+      stroke-width: 1.5;
+    }
+    .thank-you-card h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+    .thank-you-card .lead {
+      font-size: 19px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 12px;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+    .thank-you-card .sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s ease 0.4s both;
+    }
+    .thank-you-card a {
+      color: var(--red);
+      font-weight: 600;
+    }
+    .thank-you-attach {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 24px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      text-align: left;
+      margin-bottom: 40px;
+      animation: fadeUp 0.6s ease 0.5s both;
+    }
+    .thank-you-attach svg {
+      width: 22px;
+      min-width: 22px;
+      height: 22px;
+      stroke: var(--red);
+      fill: none;
+      stroke-width: 1.5;
+      margin-top: 2px;
+    }
+    .thank-you-attach span {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .thank-you-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s ease 0.6s both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
   <style>
     /* Shared header/footer shell */
     .action-bar {
@@ -111,6 +220,7 @@
 
 </head>
 <body>
+
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
   <div class="container">
@@ -173,16 +283,28 @@
   </a>
 </div>
 <main id="main-content">
+  <section class="thank-you-page">
+    <div class="thank-you-card">
+      <div class="thank-you-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+      </div>
+      <h1>Thank You!</h1>
+      <p class="lead">Your message has been sent successfully. Our team will review your inquiry and respond within <strong>one business day</strong>.</p>
+      <p class="sub">If your request is urgent, don't wait — call us directly at <a href="tel:+12049430050">204-943-0050</a>. We offer 24-hour emergency support.</p>
 
-  <section class="page-hero"><div class="container"><div class="breadcrumb"><a href="/Website/">Home</a><span class="sep">/</span><span>Projects</span></div><span class="section-label">Our Work</span><h1 class="section-title">Featured Projects</h1><p class="section-desc">Selected case studies from recent projects across multiple industries.</p></div></section>
-  <section class="section-padding"><div class="container"><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);border:1px solid var(--border);">
-    <div style="background:var(--bg-card);padding:40px 32px;"><span class="section-label">Water &amp; Wastewater</span><h3 style="font-family:var(--font-heading);font-size:24px;font-weight:700;text-transform:uppercase;margin:12px 0;">Split Lake WTP Upgrade</h3><p style="color:var(--text-secondary);line-height:1.8;">Turnkey automation — panel design, instrumentation, SCADA, PLC programming, and commissioning.</p></div>
-    <div style="background:var(--bg-card);padding:40px 32px;"><span class="section-label">Grain Handling</span><h3 style="font-family:var(--font-heading);font-size:24px;font-weight:700;text-transform:uppercase;margin:12px 0;">Automated Grain Receiving</h3><p style="color:var(--text-secondary);line-height:1.8;">Automatic control of conveyors, shutters, bucket elevators, and drag conveyors for grain receiving.</p></div>
-    <div style="background:var(--bg-card);padding:40px 32px;"><span class="section-label">Machine Automation</span><h3 style="font-family:var(--font-heading);font-size:24px;font-weight:700;text-transform:uppercase;margin:12px 0;">Automated Coating System</h3><p style="color:var(--text-secondary);line-height:1.8;">Automatic pump speed control for applying beef tallow coating by monitoring conveyors and flow.</p></div>
-    <div style="background:var(--bg-card);padding:40px 32px;"><span class="section-label">Food Processing</span><h3 style="font-family:var(--font-heading);font-size:24px;font-weight:700;text-transform:uppercase;margin:12px 0;">Packaging Conveyor Upgrade</h3><p style="color:var(--text-secondary);line-height:1.8;">Five-line upgrade — automated box flow, collision prevention, label generation, and SCADA integration.</p></div>
-  </div></div></section>
-  <section class="cta-band"><div class="container"><h2>Have a Project in Mind?</h2><p>Let us discuss your requirements and build the right solution.</p><a href="/Website/contact.html" class="btn btn-white btn-arrow">Request a Quote</a></div></section>
+      <div class="thank-you-attach">
+        <svg viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+        <span>Need to send drawings, specs, or documents?<br>Email them to <a href="mailto:info@indusautomation.com">info@indusautomation.com</a> and reference your inquiry.</span>
+      </div>
+
+      <div class="thank-you-actions">
+        <a href="/Website/" class="btn btn-primary btn-arrow">Back to Home</a>
+        <a href="/Website/services.html" class="btn btn-outline">Explore Services</a>
+      </div>
+    </div>
+  </section>
 </main>
+
 <footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
@@ -251,6 +373,5 @@
 </button>
 
 <script src="/Website/js/main.js" defer></script>
-<script src="/Website/js/seo.js" defer></script>
 </body>
 </html>
