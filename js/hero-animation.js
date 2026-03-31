@@ -48,9 +48,11 @@ class HeroAmbientAnimation {
           x: x * spacing + (Math.random() - 0.5) * 16,
           y: y * spacing + (Math.random() - 0.5) * 16,
           radius: 1 + Math.random() * 1.8,
-          alpha: 0.12 + Math.random() * 0.2,
-          drift: 0.2 + Math.random() * 0.4,
-          offset: Math.random() * Math.PI * 2
+          alpha: 0.18 + Math.random() * 0.24,
+          drift: 0.45 + Math.random() * 0.7,
+          offset: Math.random() * Math.PI * 2,
+          travel: 2.5 + Math.random() * 6,
+          tilt: Math.random() * Math.PI * 2
         });
       }
     }
@@ -62,15 +64,19 @@ class HeroAmbientAnimation {
 
     for (const node of this.nodes) {
       const shimmer = (Math.sin(time * node.drift + node.offset) + 1) / 2;
-      const radius = node.radius + shimmer * 0.9;
+      const driftX = Math.cos(time * node.drift + node.offset) * node.travel;
+      const driftY = Math.sin(time * (node.drift * 0.82) + node.tilt) * (node.travel * 0.75);
+      const x = node.x + driftX;
+      const y = node.y + driftY;
+      const radius = node.radius + shimmer * 1.1;
       ctx.beginPath();
-      ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 105, 105, ${node.alpha + shimmer * 0.1})`;
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 105, 105, ${node.alpha + shimmer * 0.14})`;
       ctx.fill();
 
       ctx.beginPath();
-      ctx.arc(node.x, node.y, radius * 3.4, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(230, 0, 0, ${0.025 + shimmer * 0.03})`;
+      ctx.arc(x, y, radius * 2.8, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(230, 0, 0, ${0.04 + shimmer * 0.045})`;
       ctx.fill();
     }
   }
