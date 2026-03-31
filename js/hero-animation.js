@@ -3,6 +3,7 @@ class HeroAmbientAnimation {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.orbs = [];
+    this.nodes = [];
     this.dpr = window.devicePixelRatio || 1;
     this.resize = this.resize.bind(this);
     this.animate = this.animate.bind(this);
@@ -43,6 +44,28 @@ class HeroAmbientAnimation {
       drift: 0.15 + Math.random() * 0.25,
       offset: Math.random() * Math.PI * 2
     }));
+
+    const spacing = Math.max(52, Math.round(this.width / 26));
+    const cols = Math.ceil(this.width / spacing) + 1;
+    const rows = Math.ceil(this.height / spacing) + 1;
+    this.nodes = [];
+
+    for (let x = 0; x < cols; x += 1) {
+      for (let y = 0; y < rows; y += 1) {
+        if (Math.random() > 0.82) {
+          continue;
+        }
+
+        this.nodes.push({
+          x: x * spacing + (Math.random() - 0.5) * 16,
+          y: y * spacing + (Math.random() - 0.5) * 16,
+          radius: 1 + Math.random() * 1.8,
+          alpha: 0.12 + Math.random() * 0.2,
+          drift: 0.2 + Math.random() * 0.4,
+          offset: Math.random() * Math.PI * 2
+        });
+      }
+    }
   }
 
   draw(time) {
@@ -58,6 +81,20 @@ class HeroAmbientAnimation {
       ctx.fillStyle = gradient;
       ctx.beginPath();
       ctx.arc(orb.x, y, orb.radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    for (const node of this.nodes) {
+      const shimmer = (Math.sin(time * node.drift + node.offset) + 1) / 2;
+      const radius = node.radius + shimmer * 0.9;
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 105, 105, ${node.alpha + shimmer * 0.1})`;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, radius * 3.4, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(230, 0, 0, ${0.025 + shimmer * 0.03})`;
       ctx.fill();
     }
   }
@@ -135,8 +172,8 @@ class HeroStatsNetwork {
       ctx.beginPath();
       ctx.moveTo(segment.from.x, segment.from.y);
       ctx.lineTo(segment.to.x, segment.to.y);
-      ctx.strokeStyle = 'rgba(255, 92, 92, 0.16)';
-      ctx.lineWidth = 1.35;
+      ctx.strokeStyle = 'rgba(255, 110, 110, 0.35)';
+      ctx.lineWidth = 1.8;
       ctx.stroke();
 
       const pulse = (Math.sin(time * 1.8 + segment.offset) + 1) / 2;
@@ -151,7 +188,7 @@ class HeroStatsNetwork {
 
       ctx.beginPath();
       ctx.arc(x, y, 14, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(230, 0, 0, ${glow * 0.32})`;
+      ctx.fillStyle = `rgba(230, 0, 0, ${glow * 0.4})`;
       ctx.fill();
     });
 
