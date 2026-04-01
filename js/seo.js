@@ -6,10 +6,10 @@
 
 const COMPANY = {
   name: 'Indus Automation Inc.',
-  url: 'https://www.indusautomation.ca', // ← UPDATE to your real domain
-  logo: 'https://www.indusautomation.ca/assets/images/logo.png',
+  url: 'https://www.indusautomation.com',
+  logo: 'https://www.indusautomation.com/assets/images/indus-logo.jpg',
   phone: '+1-204-943-0050',
-  email: 'info@indusautomation.ca',
+  email: 'info@indusautomation.com',
   address: {
     street: '1-442 Higgins Avenue',
     city: 'Winnipeg',
@@ -17,14 +17,14 @@ const COMPANY = {
     postal: 'R3A 1S5',
     country: 'CA',
   },
-  geo: { lat: 49.8989, lng: -97.1378 },
+  geo: { lat: 49.9071342, lng: -97.1444937 },
   hours: ['Mo-Fr 08:00-16:30'],
   social: [
-    // Add your social URLs here:
-    // 'https://www.linkedin.com/company/indus-automation',
-    // 'https://www.facebook.com/indusautomation',
+    'https://ca.linkedin.com/company/indusautomation',
+    'https://www.facebook.com/share/1C8xju6A15/',
+    'https://www.instagram.com/indusautomationinc',
   ],
-  description: 'Full-service industrial automation company in Winnipeg, MB. Custom control panel design, PLC/HMI/SCADA programming, commissioning, and 24/7 support.',
+  description: 'CSA-certified control panel manufacturing and PLC/HMI/SCADA programming in Winnipeg, MB. Serving industrial, municipal, and commercial clients across North America. 15+ years experience. Siemens Solution Provider.',
 };
 
 /* ─── INJECT STRUCTURED DATA ─── */
