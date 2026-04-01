@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Industry Specialties — Indus Automation Inc. | Winnipeg, MB</title>
-  <meta name="description" content="Automation expertise across 12+ industries.">
+  <title>Specialties | Industrial Automation Expertise Across Key Industries — Indus Automation</title>
+  <meta name="description" content="Explore Indus Automation\'s specialty areas, including agriculture, breweries, food processing, mining, refrigeration, water treatment, utilities, commercial buildings, OEM systems, heavy industry, and custom applications.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://sukhmeet468.github.io/Website/specialties.html">
   <link rel="icon" type="image/svg+xml" href="/Website/assets/images/icon.jpg">
@@ -51,6 +51,26 @@
     .action-bar svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; }
 
     .page-hero { padding-top: calc(var(--nav-height) + 42px + 80px); }
+    .page-hero-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.72fr);
+      gap: 42px;
+      align-items: center;
+    }
+    .page-hero-media {
+      justify-self: end;
+      width: min(100%, 420px);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: var(--bg-secondary);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+    }
+    .page-hero-media img {
+      display: block;
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
 
     .nav-item { position: relative; }
     .nav-item > .nav-link { display: flex; align-items: center; gap: 4px; }
@@ -98,6 +118,16 @@
     }
 
     @media (max-width: 768px) {
+      .page-hero-split {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .page-hero-media {
+        justify-self: stretch;
+        width: 100%;
+        max-width: none;
+      }
+      .page-hero-media img { height: 240px; }
       .dropdown {
         position: static;
         box-shadow: none;
@@ -176,20 +206,126 @@
 </div>
 <main id="main-content">
 
-  <section class="page-hero"><div class="container"><div class="breadcrumb"><a href="/Website/">Home</a><span class="sep">/</span><span>Specialties</span></div><span class="section-label">Our Expertise</span><h1 class="section-title">Industry Specialties</h1><p class="section-desc">High-quality control panels and services across a wide variety of industries.</p></div></section>
-  <section class="section-padding"><div class="container"><div class="specialties-grid" style="grid-template-columns:repeat(3,1fr);"><a href="/Website/specialties/agriculture.html" class="specialty-card fade-up"><div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Agriculture &amp; Grain Handling</h3></a>
-<a href="/Website/specialties/breweries.html" class="specialty-card fade-up"><div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Breweries</h3></a>
-<a href="/Website/specialties/food-processing.html" class="specialty-card fade-up"><div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Food Processing</h3></a>
-<a href="/Website/specialties/metal-processing.html" class="specialty-card fade-up"><div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Metal Processing</h3></a>
-<a href="/Website/specialties/mining.html" class="specialty-card fade-up"><div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Mining</h3></a>
-<a href="/Website/specialties/refrigeration.html" class="specialty-card fade-up"><div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Industrial Refrigeration</h3></a>
-<a href="/Website/specialties/water-treatment.html" class="specialty-card fade-up"><div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Water &amp; Wastewater</h3></a>
-<a href="/Website/specialties/utilities.html" class="specialty-card fade-up"><div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Utilities &amp; Power</h3></a>
-<a href="/Website/specialties/building-controls.html" class="specialty-card fade-up"><div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Building Controls</h3></a>
-<a href="/Website/specialties/manufacturing-oem.html" class="specialty-card fade-up"><div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Manufacturing &amp; OEM</h3></a>
-<a href="/Website/specialties/heavy-industry.html" class="specialty-card fade-up"><div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Heavy Industry</h3></a>
-<a href="/Website/specialties/custom-apps.html" class="specialty-card fade-up"><div class="specialty-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Custom Applications</h3></a></div></div></section>
-  <section class="cta-band"><div class="container"><h2>Your Industry. Our Expertise.</h2><p>We build the systems that keep you running.</p><a href="/Website/contact.html" class="btn btn-white btn-arrow">Request a Quote</a></div></section>
+  <section class="page-hero"><div class="container page-hero-split">
+    <div>
+      <div class="breadcrumb"><a href="/Website/">Home</a><span class="sep">/</span><span>Specialties</span></div>
+      <span class="section-label">Industries We Serve</span>
+      <h1 class="section-title">Specialties</h1>
+      <p class="section-desc">Indus Automation delivers high-quality control panels and automation services across a wide range of industries. We bring technical knowledge, industry-specific experience, and a commitment to long-term performance.</p>
+    </div>
+    <div class="page-hero-media">
+      <img src="/Website/assets/images/specialities/specialties-hero.jpg" alt="Modern industrial facility with control panels and automation equipment" loading="eager">
+    </div>
+  </div></section>
+
+  <section class="section-padding">
+    <div class="container">
+      <p style="font-size:17px;color:var(--text-secondary);line-height:1.8;max-width:800px;margin-bottom:48px;">From new builds to retrofit projects, we design systems that are built to work in real-world operating conditions. Select an industry below to learn how we can help.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);border:1px solid var(--border);">
+
+        <a href="/Website/specialties/agriculture.html" class="service-card fade-up" style="display:flex;flex-direction:column;">
+          <div class="service-card-number">01</div>
+          <h3>Agriculture &amp; Grain Handling</h3>
+          <img src="/Website/assets/images/specialities/agriculture-hero.jpg" alt="Grain handling facility" style="width:100%;height:180px;object-fit:cover;border:1px solid var(--border);margin:12px 0;" loading="lazy">
+          <p>Dependable automation for grain handling, conveyors, elevators, hammermills, and processing plants.</p>
+          <span class="service-card-link" style="margin-top:auto;">Learn More →</span>
+        </a>
+
+        <a href="/Website/specialties/breweries.html" class="service-card fade-up" style="display:flex;flex-direction:column;">
+          <div class="service-card-number">02</div>
+          <h3>Breweries</h3>
+          <img src="/Website/assets/images/specialities/breweries-hero.jpg" alt="Modern brewery fermentation tanks" style="width:100%;height:180px;object-fit:cover;border:1px solid var(--border);margin:12px 0;" loading="lazy">
+          <p>Precise process control for brewhouses, fermenters, centrifuges, and effluent treatment.</p>
+          <span class="service-card-link" style="margin-top:auto;">Learn More →</span>
+        </a>
+
+        <a href="/Website/specialties/food-processing.html" class="service-card fade-up" style="display:flex;flex-direction:column;">
+          <div class="service-card-number">03</div>
+          <h3>Food Processing</h3>
+          <img src="/Website/assets/images/specialities/food-processing-hero.jpg" alt="Food processing production line" style="width:100%;height:180px;object-fit:cover;border:1px solid var(--border);margin:12px 0;" loading="lazy">
+          <p>Hygienic automation for conveyors, palletizers, tumblers, chill lines, and rendering.</p>
+          <span class="service-card-link" style="margin-top:auto;">Learn More →</span>
+        </a>
+
+        <a href="/Website/specialties/metal-processing.html" class="service-card fade-up" style="display:flex;flex-direction:column;">
+          <div class="service-card-number">04</div>
+          <h3>Metal Processing</h3>
+          <img src="/Website/assets/images/specialities/metal-processing-hero.jpg" alt="Metal processing facility" style="width:100%;height:180px;object-fit:cover;border:1px solid var(--border);margin:12px 0;" loading="lazy">
+          <p>Rugged automation for conveyors, magnetic drums, shakers, and shredders.</p>
+          <span class="service-card-link" style="margin-top:auto;">Learn More →</span>
+        </a>
+
+        <a href="/Website/specialties/mining.html" class="service-card fade-up" style="display:flex;flex-direction:column;">
+          <div class="service-card-number">05</div>
+          <h3>Mining</h3>
+          <img src="/Website/assets/images/specialities/mining-hero.jpg" alt="Mining operation with heavy equipment" style="width:100%;height:180px;object-fit:cover;border:1px solid var(--border);margin:12px 0;" loading="lazy">
+          <p>Dependable controls for compressors, underground and surface drilling equipment.</p>
+          <span class="service-card-link" style="margin-top:auto;">Learn More →</span>
+        </a>
+
+        <a href="/Website/specialties/refrigeration.html" class="service-card fade-up" style="display:flex;flex-direction:column;">
+          <div class="service-card-number">06</div>
+          <h3>Industrial Refrigeration</h3>
+          <img src="/Website/assets/images/specialities/refrigeration-hero.jpg" alt="Refrigeration plant room" style="width:100%;height:180px;object-fit:cover;border:1px solid var(--border);margin:12px 0;" loading="lazy">
+          <p>Safe refrigerant handling, precise temperature control, and efficient plant performance.</p>
+          <span class="service-card-link" style="margin-top:auto;">Learn More →</span>
+        </a>
+
+        <a href="/Website/specialties/water-treatment.html" class="service-card fade-up" style="display:flex;flex-direction:column;">
+          <div class="service-card-number">07</div>
+          <h3>Water &amp; Wastewater</h3>
+          <img src="/Website/assets/images/specialities/water-treatment-hero.jpg" alt="Water treatment plant" style="width:100%;height:180px;object-fit:cover;border:1px solid var(--border);margin:12px 0;" loading="lazy">
+          <p>Turnkey automation for WTPs, WWTPs, lift stations, pumphouses, and SCADA systems.</p>
+          <span class="service-card-link" style="margin-top:auto;">Learn More →</span>
+        </a>
+
+        <a href="/Website/specialties/utilities.html" class="service-card fade-up" style="display:flex;flex-direction:column;">
+          <div class="service-card-number">08</div>
+          <h3>Utilities &amp; Power</h3>
+          <img src="/Website/assets/images/specialities/utilities-hero.jpg" alt="Power distribution switchgear" style="width:100%;height:180px;object-fit:cover;border:1px solid var(--border);margin:12px 0;" loading="lazy">
+          <p>Reliable automation for generators, power distribution, and smoothing reactor panels.</p>
+          <span class="service-card-link" style="margin-top:auto;">Learn More →</span>
+        </a>
+
+        <a href="/Website/specialties/building-controls.html" class="service-card fade-up" style="display:flex;flex-direction:column;">
+          <div class="service-card-number">09</div>
+          <h3>Commercial Building Controls</h3>
+          <img src="/Website/assets/images/specialities/building-controls-hero.jpg" alt="Commercial building with automated lighting" style="width:100%;height:180px;object-fit:cover;border:1px solid var(--border);margin:12px 0;" loading="lazy">
+          <p>Intelligent controls for lighting, overhead doors, parking lots, and access systems.</p>
+          <span class="service-card-link" style="margin-top:auto;">Learn More →</span>
+        </a>
+
+        <a href="/Website/specialties/manufacturing-oem.html" class="service-card fade-up" style="display:flex;flex-direction:column;">
+          <div class="service-card-number">10</div>
+          <h3>Manufacturing &amp; OEM</h3>
+          <img src="/Website/assets/images/specialities/manufacturing-hero.jpg" alt="Manufacturing production line" style="width:100%;height:180px;object-fit:cover;border:1px solid var(--border);margin:12px 0;" loading="lazy">
+          <p>Scalable automation for OEM equipment, panel manufacturing, and production systems.</p>
+          <span class="service-card-link" style="margin-top:auto;">Learn More →</span>
+        </a>
+
+        <a href="/Website/specialties/heavy-industry.html" class="service-card fade-up" style="display:flex;flex-direction:column;">
+          <div class="service-card-number">11</div>
+          <h3>Heavy Industry</h3>
+          <img src="/Website/assets/images/specialities/heavy-industry-hero.jpg" alt="Heavy industrial facility" style="width:100%;height:180px;object-fit:cover;border:1px solid var(--border);margin:12px 0;" loading="lazy">
+          <p>Durable automation for steel, pulp &amp; paper, sawmills, and power generation.</p>
+          <span class="service-card-link" style="margin-top:auto;">Learn More →</span>
+        </a>
+
+        <a href="/Website/specialties/custom-apps.html" class="service-card fade-up" style="display:flex;flex-direction:column;">
+          <div class="service-card-number">12</div>
+          <h3>Custom Applications</h3>
+          <img src="/Website/assets/images/specialities/custom-apps-hero.jpg" alt="Custom specialty automation" style="width:100%;height:180px;object-fit:cover;border:1px solid var(--border);margin:12px 0;" loading="lazy">
+          <p>Unique solutions for autoclaves, waterslide controls, and specialty applications.</p>
+          <span class="service-card-link" style="margin-top:auto;">Learn More →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band"><div class="container"><h2>Don't See Your Industry?</h2><p>We work across many sectors. Tell us about your application and we'll find the right solution.</p><a href="/Website/contact.html" class="btn btn-white btn-arrow">Contact Us</a></div></section>
+
 </main>
 <footer class="footer" role="contentinfo">
   <div class="container">

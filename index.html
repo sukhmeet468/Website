@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Indus Automation | Expert CSA Control Panel Manufacturing & PLC Programming</title>
+  <title>Expert CSA Control Panel Manufacturing & PLC Programming | Indus Automation</title>
   <meta name="description" content="Indus Automation Inc. — CSA-certified control panel manufacturing & PLC/HMI/SCADA programming in Winnipeg, MB. 15+ years engineering smarter automation. Siemens Solution Provider. 24/7 support.">
   <meta name="keywords" content="control panel manufacturing, PLC programming, CSA certified panels, industrial automation Winnipeg, HMI, SCADA, motor control centres, Siemens, Allen-Bradley, Manitoba">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://sukhmeet468.github.io/Website/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Indus Automation Inc.">
-  <meta property="og:title" content="Indus Automation | Expert CSA Control Panel Manufacturing & PLC Programming">
+  <meta property="og:title" content="Expert CSA Control Panel Manufacturing & PLC Programming | Indus Automation">
   <meta property="og:description" content="Precision-engineered control systems. Custom PLC programming and CSA-certified control panels. Serving North America from Winnipeg, MB.">
   <meta property="og:url" content="https://sukhmeet468.github.io/Website/">
   <meta property="og:image" content="https://sukhmeet468.github.io/Website/assets/images/hero-bg-1.webp">
@@ -29,158 +29,105 @@
   <link rel="stylesheet" href="/Website/css/responsive.css">
   <style>
     /* ═══ STICKY ACTION BAR ═══ */
-    .action-bar {
-      position:fixed; top:var(--nav-height); left:0; right:0; z-index:999;
-      background:var(--red); display:flex; justify-content:center; gap:0;
-      border-bottom:1px solid rgba(0,0,0,0.3); height:42px;
-    }
-    .action-bar a {
-      display:flex; align-items:center; justify-content:center; gap:8px;
-      flex:1; max-width:300px; padding:0 20px; font-family:var(--font-heading);
-      font-size:13px; font-weight:600; letter-spacing:2px; text-transform:uppercase;
-      color:#fff; transition:background 0.2s; text-decoration:none;
-    }
+    .action-bar { position:fixed; top:var(--nav-height); left:0; right:0; z-index:999; background:var(--red); display:flex; justify-content:center; gap:0; border-bottom:1px solid rgba(0,0,0,0.3); height:42px; }
+    .action-bar a { display:flex; align-items:center; justify-content:center; gap:8px; flex:1; max-width:300px; padding:0 20px; font-family:var(--font-heading); font-size:13px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#fff; transition:background 0.2s; text-decoration:none; }
     .action-bar a:first-child { border-right:1px solid rgba(255,255,255,0.2); }
     .action-bar a:hover { background:var(--red-dark); }
     .action-bar svg { width:16px; height:16px; stroke:#fff; fill:none; stroke-width:2; }
 
-    /* Push content below nav+action bar */
     .hero { padding-top:calc(var(--nav-height) + 42px); }
     .page-hero { padding-top:calc(var(--nav-height) + 42px + 80px); }
 
     /* ═══ NAV DROPDOWNS ═══ */
     .nav-item { position:relative; }
     .nav-item > .nav-link { display:flex; align-items:center; gap:4px; }
-    .nav-item > .nav-link::after {
-      content:''; width:0; height:0; border-left:4px solid transparent;
-      border-right:4px solid transparent; border-top:4px solid currentColor;
-      transition:transform 0.2s;
-    }
+    .nav-item > .nav-link::after { content:''; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:4px solid currentColor; transition:transform 0.2s; }
     .nav-item:hover > .nav-link::after { transform:rotate(180deg); }
-    .dropdown {
-      display:none; position:absolute; top:100%; left:0; min-width:280px;
-      background:rgba(13,13,13,0.98); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px);
-      border:1px solid var(--border); padding:8px 0; z-index:1001;
-      box-shadow:0 12px 40px rgba(0,0,0,0.5);
-    }
+    .dropdown { display:none; position:absolute; top:100%; left:0; min-width:280px; background:rgba(13,13,13,0.98); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); border:1px solid var(--border); padding:8px 0; z-index:1001; box-shadow:0 12px 40px rgba(0,0,0,0.5); }
     .nav-item:hover .dropdown { display:block; }
-    .dropdown a {
-      display:block; padding:10px 24px; font-family:var(--font-heading);
-      font-size:13px; font-weight:500; letter-spacing:1px; text-transform:uppercase;
-      color:var(--text-secondary); transition:all 0.2s; text-decoration:none;
-    }
+    .dropdown a { display:block; padding:10px 24px; font-family:var(--font-heading); font-size:13px; font-weight:500; letter-spacing:1px; text-transform:uppercase; color:var(--text-secondary); transition:all 0.2s; text-decoration:none; }
     .dropdown a:hover { color:#fff; background:rgba(230,0,0,0.08); padding-left:28px; }
 
-    /* ═══ HERO — Full-width crossfading images + canvas overlay ═══ */
-    .hero {
-      position:relative; min-height:100vh; display:flex; align-items:center;
-      overflow:hidden;
-    }
-    .hero-slideshow {
-      position:absolute; inset:0; z-index:0;
-    }
-    .hero-slideshow img {
-      position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
-      opacity:0; animation:heroFade 12s infinite; filter:brightness(1.14) contrast(1.08) saturate(1.04);
-    }
-    .hero-slideshow img:nth-child(2) {
-      object-position:center 42%;
-      transform:scale(1.08);
-      filter:brightness(1.12) contrast(1.12) saturate(1.08);
-    }
-    .hero-slideshow img:first-child {
-      animation:heroFadeMuted 12s infinite;
-    }
+    /* ═══ HERO ═══ */
+    .hero { position:relative; min-height:100vh; display:flex; align-items:center; overflow:hidden; }
+    .hero-slideshow { position:absolute; inset:0; z-index:0; }
+    .hero-slideshow img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; animation:heroFade 12s infinite; filter:brightness(1.24) contrast(1.08) saturate(1.06); }
+    .hero-slideshow img:nth-child(2) { object-position:center 42%; transform:scale(1.08); filter:brightness(1.22) contrast(1.12) saturate(1.1); }
+    .hero-slideshow img:first-child { animation:heroFadeMuted 12s infinite; }
     .hero-slideshow img:nth-child(2) { animation-delay:6s; }
-    @keyframes heroFade {
-      0% { opacity:0; }
-      8% { opacity:0.5; }
-      50% { opacity:0.5; }
-      58% { opacity:0; }
-      100% { opacity:0; }
+    @keyframes heroFade { 0%{opacity:0} 8%{opacity:0.5} 50%{opacity:0.5} 58%{opacity:0} 100%{opacity:0} }
+    @keyframes heroFadeMuted { 0%{opacity:0} 8%{opacity:0.5} 50%{opacity:0.5} 58%{opacity:0} 100%{opacity:0} }
+    .hero-overlay { position:absolute; inset:0; z-index:1; background:radial-gradient(circle at 18% 32%, rgba(230,0,0,0.08) 0%, rgba(230,0,0,0) 34%), linear-gradient(135deg, rgba(13,13,13,0.34) 0%, rgba(13,13,13,0.14) 42%, rgba(13,13,13,0.04) 100%); }
+    .hero-canvas-wrap { position:absolute; inset:0; z-index:2; pointer-events:none; }
+    .hero-canvas-wrap canvas { width:100%; height:100%; opacity:0.82; }
+    .hero-grid-overlay { position:absolute; inset:0; z-index:2; pointer-events:none; background-image:linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px); background-size:92px 92px; -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,0.78), rgba(0,0,0,0.22)); mask-image:linear-gradient(180deg, rgba(0,0,0,0.78), rgba(0,0,0,0.22)); opacity:0.22; }
+    .hero-content { max-width:720px; }
+    .hero-content h1 { font-family:var(--font-heading); font-size:clamp(48px, 6.2vw, 86px); line-height:0.95; text-transform:uppercase; letter-spacing:-0.018em; margin:18px 0 22px; word-wrap:break-word; font-weight:700; }
+    .hero-title-line { display:inline-block; }
+    .hero-word { display:inline-block; opacity:1; transform:translateY(0) scale(1); transform-origin:center bottom; animation:heroWordBounce 2.8s cubic-bezier(.22,1.35,.34,1) infinite; animation-delay:var(--delay, 0s); will-change:transform, opacity; }
+    .hero-word + .hero-word { margin-left:0.18em; }
+    .hero-word.red { color:var(--red); text-shadow:0 0 6px rgba(230,0,0,0.06); }
+    @keyframes heroWordBounce {
+      0%, 12%, 100% { opacity:1; transform:translateY(0) scale(1); }
+      18% { opacity:1; transform:translateY(-12px) scale(1.05); }
+      24% { opacity:1; transform:translateY(4px) scale(0.985); }
+      30% { opacity:1; transform:translateY(0) scale(1); }
     }
-    @keyframes heroFadeMuted {
-      0% { opacity:0; }
-      8% { opacity:0.5; }
-      50% { opacity:0.5; }
-      58% { opacity:0; }
-      100% { opacity:0; }
-    }
-    .hero-overlay {
-      position:absolute; inset:0; z-index:1;
-      background:linear-gradient(135deg, rgba(13,13,13,0.4) 0%, rgba(13,13,13,0.22) 40%, rgba(13,13,13,0.09) 100%);
-    }
-    .hero-canvas-wrap {
-      position:absolute; inset:0; z-index:2; pointer-events:none;
-    }
-    .hero-canvas-wrap canvas { width:100%; height:100%; opacity:0.58; }
-    .hero .container {
-      position:relative; z-index:3;
-      display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
-    }
+
+    /* ═══ HERO LAYOUT — desktop: 2-col, mobile: stacked ═══ */
+    .hero .container { position:relative; z-index:3; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
     .hero-stats-col { display:flex; justify-content:flex-end; }
-    .hero-stats {
-      position:relative;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-      padding:18px;
-      background:transparent;
-      border:none;
-      isolation:isolate;
-    }
-    .hero-stat {
-      position:relative;
-      z-index:1;
-      background:linear-gradient(180deg, rgba(20,20,20,0.2), rgba(20,20,20,0.08));
-      border:1px solid rgba(255,255,255,0.06);
-      -webkit-backdrop-filter:blur(8px);
-      backdrop-filter:blur(8px);
-      box-shadow:0 10px 30px rgba(0,0,0,0.18);
-    }
-    .hero-stat > * {
-      position:relative;
-      z-index:4;
-    }
+    .hero-stats { position:relative; display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:18px; background:transparent; border:none; isolation:isolate; }
+    .hero-stat { position:relative; z-index:1; background:linear-gradient(180deg, rgba(20,20,20,0.2), rgba(20,20,20,0.08)); border:1px solid rgba(255,255,255,0.06); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); box-shadow:0 10px 30px rgba(0,0,0,0.18); }
+    .hero-stat > * { position:relative; z-index:4; }
     .hero-stat::before {
       content:'';
       position:absolute;
-      top:18px;
-      left:18px;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:rgba(255,120,120,0.95);
-      box-shadow:0 0 0 4px rgba(230,0,0,0.14), 0 0 22px rgba(255,84,84,0.55);
+      top:16px;
+      left:16px;
+      width:16px;
+      height:16px;
+      border:1px solid rgba(255, 158, 145, 0.42);
+      border-radius:4px;
+      background:
+        linear-gradient(rgba(255, 185, 170, 0.88), rgba(255, 185, 170, 0.88)) 3px 3px / 10px 2px no-repeat,
+        linear-gradient(rgba(255, 185, 170, 0.78), rgba(255, 185, 170, 0.78)) 3px 7px / 6px 2px no-repeat,
+        radial-gradient(circle, rgba(255, 155, 135, 0.88) 0 1.2px, transparent 1.3px) 11px 10px / 3px 3px no-repeat,
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      box-shadow:0 0 0 3px rgba(230,0,0,0.06), 0 0 12px rgba(255,84,84,0.16);
     }
-    .hero-stats-canvas {
-      position:absolute;
-      inset:0;
-      z-index:3;
-      width:100%;
-      height:100%;
-      pointer-events:none;
+    .hero-stats-canvas { position:absolute; inset:0; z-index:3; width:100%; height:100%; pointer-events:none; }
+
+    /* ═══ RESPONSIVE HERO — stats below text on small screens ═══ */
+    @media(max-width:1024px) {
+      .hero .container { grid-template-columns:1fr; gap:32px; }
+      .hero-stats-col { justify-content:center; }
+      .hero-stats { max-width:420px; width:100%; padding:12px; gap:8px; }
+      .hero-stat { padding:16px 18px !important; }
+      .hero-stat::before { top:13px; left:13px; width:14px; height:14px; box-shadow:0 0 0 2px rgba(230,0,0,0.05), 0 0 10px rgba(255,84,84,0.14); }
+      .hero-content h1 { font-size:clamp(44px, 8.8vw, 72px); }
+      .hero-grid-overlay { background-size:76px 76px; opacity:0.11; }
+    }
+    @media(max-width:560px) {
+      .hero-stats { max-width:100%; }
+      .hero-stat { padding:14px 14px !important; }
+      .hero-stat-number { font-size:22px !important; }
+      .hero-stat-label { font-size:10px !important; }
+      .hero-stat::before { top:11px; left:11px; width:13px; height:13px; box-shadow:0 0 0 2px rgba(230,0,0,0.05), 0 0 8px rgba(255,84,84,0.12); }
+      .hero-content h1 { font-size:clamp(36px, 12vw, 54px); line-height:0.98; }
+      .hero-grid-overlay { background-size:54px 54px; opacity:0.09; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-word { opacity:1; transform:none; animation:none; }
     }
 
-    /* ═══ SHOWCASE STRIP (hero-bg-2 beside text) ═══ */
-    .showcase-section {
-      display:grid; grid-template-columns:1.2fr 0.8fr; gap:0;
-      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
-    }
+    /* ═══ SHOWCASE ═══ */
+    .showcase-section { display:grid; grid-template-columns:40% 60%; gap:0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
     .showcase-image { position:relative; min-height:400px; overflow:hidden; }
     .showcase-image img { width:100%; height:100%; object-fit:cover; filter:brightness(0.92); }
-    .showcase-image::after {
-      content:''; position:absolute; inset:0;
-      background:linear-gradient(to right, transparent 60%, var(--bg-secondary) 100%);
-    }
-    .showcase-text {
-      background:var(--bg-secondary); padding:80px 60px; display:flex;
-      flex-direction:column; justify-content:center;
-    }
-    .showcase-text h2 {
-      font-family:var(--font-heading); font-size:clamp(28px,4vw,42px);
-      font-weight:700; text-transform:uppercase; line-height:1.1; margin-bottom:20px;
-    }
+    .showcase-image::after { content:''; position:absolute; inset:0; background:linear-gradient(to left, transparent 60%, var(--bg-secondary) 100%); }
+    .showcase-text { background:var(--bg-secondary); padding:80px 60px; display:flex; flex-direction:column; justify-content:center; }
+    .showcase-text h2 { font-family:var(--font-heading); font-size:clamp(28px,4vw,42px); font-weight:700; text-transform:uppercase; line-height:1.1; margin-bottom:20px; }
     .showcase-text h2 .red { color:var(--red); }
     .showcase-text p { font-size:17px; color:var(--text-secondary); line-height:1.8; margin-bottom:24px; }
 
@@ -191,23 +138,11 @@
     .brand-carousel::after { right:0; background:linear-gradient(to left,var(--bg-secondary),transparent); }
     .brand-track { display:flex; gap:24px; align-items:center; width:max-content; animation:scrollBrands 32s linear infinite; }
     .brand-track:hover { animation-play-state:paused; }
-    .brand-track a {
-      display:flex; align-items:center; justify-content:center; flex:0 0 calc((var(--max-width) - 64px - 48px) / 3);
-      width:calc((var(--max-width) - 64px - 48px) / 3); min-height:160px; padding:30px;
-      background:var(--bg-card); border:1px solid var(--border); opacity:0.8; filter:brightness(1.08); transition:0.3s;
-    }
+    .brand-track a { display:flex; align-items:center; justify-content:center; flex:0 0 calc((var(--max-width) - 64px - 48px) / 3); width:calc((var(--max-width) - 64px - 48px) / 3); min-height:160px; padding:30px; background:var(--bg-card); border:1px solid var(--border); opacity:0.8; filter:brightness(1.08); transition:0.3s; }
     .brand-track a:hover { opacity:1; filter:brightness(1); transform:translateY(-4px); border-color:var(--red); }
     .brand-track a img { width:100%; height:92px; max-width:260px; object-fit:contain; }
-    @media (max-width: 900px) {
-      .brand-track a { flex-basis:calc((100vw - 64px - 24px) / 2); width:calc((100vw - 64px - 24px) / 2); min-height:148px; }
-      .brand-track a img { height:82px; }
-    }
-    @media (max-width: 560px) {
-      .brand-carousel::before,.brand-carousel::after { width:48px; }
-      .brand-track { gap:16px; }
-      .brand-track a { flex-basis:calc(100vw - 64px); width:calc(100vw - 64px); min-height:132px; padding:22px; }
-      .brand-track a img { height:72px; max-width:220px; }
-    }
+    @media(max-width:900px) { .brand-track a { flex-basis:calc((100vw - 64px - 24px) / 2); width:calc((100vw - 64px - 24px) / 2); min-height:148px; } .brand-track a img { height:82px; } }
+    @media(max-width:560px) { .brand-carousel::before,.brand-carousel::after { width:48px; } .brand-track { gap:16px; } .brand-track a { flex-basis:calc(100vw - 64px); width:calc(100vw - 64px); min-height:132px; padding:22px; } .brand-track a img { height:72px; max-width:220px; } }
     @keyframes scrollBrands { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
     /* ═══ VALUES ═══ */
@@ -245,21 +180,8 @@
     .cert-icon-schneider { background:rgba(61,174,43,0.08); border-color:rgba(61,174,43,0.2); color:#3dae2b; }
     .cert-icon-isn { background:rgba(26,115,232,0.08); border-color:rgba(26,115,232,0.22); color:#1a73e8; }
     .cert-icon-csa { background:rgba(230,0,0,0.08); border-color:rgba(230,0,0,0.2); color:var(--red); }
-    .cert-icon-img {
-      width:34px;
-      height:34px;
-      object-fit:contain;
-      display:block;
-    }
-    .cert-link-note {
-      display:inline-block;
-      margin-top:6px;
-      font-size:12px;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      color:var(--red);
-      font-family:var(--font-heading);
-    }
+    .cert-icon-img { width:34px; height:34px; object-fit:contain; display:block; }
+    .cert-link-note { display:inline-block; margin-top:6px; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--red); font-family:var(--font-heading); }
     .cert-item h4 { font-family:var(--font-heading); font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:1px; }
     .cert-item p { font-size:13px; color:var(--text-muted); margin-top:4px; }
 
@@ -277,8 +199,6 @@
 
     /* ═══ RESPONSIVE ═══ */
     @media(max-width:1024px) {
-      .hero .container { grid-template-columns:1fr; }
-      .hero-stats-col { display:none; }
       .showcase-section { grid-template-columns:1fr; }
       .showcase-image { min-height:300px; }
       .showcase-text { padding:48px 32px; }
@@ -297,7 +217,6 @@
 </head>
 <body>
 
-<!-- ═══ NAV with dropdowns ═══ -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
   <div class="container">
@@ -306,8 +225,6 @@
     </a>
     <div class="nav-links" id="navLinks" role="menubar">
       <a href="/Website/" class="nav-link" role="menuitem">Home</a>
-
-      <!-- SERVICES DROPDOWN -->
       <div class="nav-item">
         <a href="/Website/services.html" class="nav-link" role="menuitem">Services</a>
         <div class="dropdown">
@@ -323,8 +240,6 @@
           <a href="/Website/services/instrumentation.html">Instrumentation Services</a>
         </div>
       </div>
-
-      <!-- SPECIALTIES DROPDOWN -->
       <div class="nav-item">
         <a href="/Website/specialties.html" class="nav-link" role="menuitem">Specialties</a>
         <div class="dropdown">
@@ -342,33 +257,21 @@
           <a href="/Website/specialties/custom-apps.html">Custom Applications</a>
         </div>
       </div>
-
       <a href="/Website/projects.html" class="nav-link" role="menuitem">Projects</a>
       <a href="/Website/faq.html" class="nav-link" role="menuitem">FAQ</a>
       <a href="/Website/partners.html" class="nav-link" role="menuitem">Partners</a>
       <a href="/Website/contact.html" class="nav-link nav-cta" role="menuitem">Contact Us</a>
     </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- ═══ STICKY ACTION BAR (email + call) ═══ -->
 <div class="action-bar">
-  <a href="mailto:info@indusautomation.com">
-    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-    Email Us
-  </a>
-  <a href="tel:+12049430050">
-    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    Call 204-943-0050
-  </a>
+  <a href="mailto:info@indusautomation.com"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email Us</a>
+  <a href="tel:+12049430050"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call 204-943-0050</a>
 </div>
 
 <main id="main-content">
-
-  <!-- ═══ HERO — crossfading images + canvas overlay + content ═══ -->
   <section class="hero">
     <div class="hero-slideshow">
       <img src="/Website/assets/images/hero-bg-1.webp" alt="Industrial control panels">
@@ -380,7 +283,18 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge"><span class="dot"></span> Winnipeg, Manitoba</div>
-        <h1>Where <span class="red">Precision</span><br>Meets<br>Performance</h1>
+        <h1>
+          <span class="hero-title-line">
+            <span class="hero-word" style="--delay:0.02s">Where</span>
+            <span class="hero-word red" style="--delay:0.16s">Precision</span>
+          </span><br>
+          <span class="hero-title-line">
+            <span class="hero-word" style="--delay:0.30s">Meets</span>
+          </span><br>
+          <span class="hero-title-line">
+            <span class="hero-word red" style="--delay:0.44s">Performance</span>
+          </span>
+        </h1>
         <p class="hero-desc">CSA-certified control panels and PLC programming trusted by industry leaders across North America. 15+ years engineering smarter automation for Canada's leading industries.</p>
         <div class="hero-actions">
           <a href="/Website/services.html" class="btn btn-primary btn-arrow">See Services</a>
@@ -399,20 +313,16 @@
     </div>
   </section>
 
-  <!-- ═══ SHOWCASE — hero-bg-2 beside text ═══ -->
   <div class="showcase-section">
-    <div class="showcase-image">
-      <img src="/Website/assets/images/home-specialities-3.jpg" alt="Control panel switchgear close-up — Indus Automation" loading="lazy">
-    </div>
     <div class="showcase-text">
       <span class="section-label">Get Inspired</span>
       <h2>Automation That Works<br>as Hard as <span class="red">You Do</span></h2>
       <p>Custom control panels, expert programming, and turnkey solutions for your industry. Discover what control panels and PLC programming advantages we can bring to your business.</p>
       <a href="/Website/specialties.html" class="btn btn-primary btn-arrow">Explore Our Specialties</a>
     </div>
+    <div class="showcase-image"><img src="/Website/assets/images/home-specialities-3.jpg" alt="Control panel switchgear close-up — Indus Automation" loading="lazy"></div>
   </div>
 
-  <!-- ═══ EXPERIENCE / ABOUT ═══ -->
   <section class="intro section-padding">
     <div class="container">
       <div class="intro-text">
@@ -430,7 +340,6 @@
     </div>
   </section>
 
-  <!-- ═══ CORE VALUES — animated ═══ -->
   <section class="section-padding" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="container">
       <span class="section-label">What Drives Us</span>
@@ -443,7 +352,6 @@
     </div>
   </section>
 
-  <!-- ═══ WHY CHOOSE US ═══ -->
   <section class="section-padding">
     <div class="container">
       <span class="section-label">Why Industry Leaders Choose Us</span>
@@ -457,7 +365,6 @@
     </div>
   </section>
 
-  <!-- ═══ BRAND CAROUSEL ═══ -->
   <section class="section-padding" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="container" style="text-align:center;">
       <span class="section-label">Trusted Partners</span>
@@ -473,7 +380,6 @@
           <a href="http://www.omron.ca/" target="_blank" rel="noopener"><img src="/Website/assets/images/brands/omron.png" alt="Omron"></a>
           <a href="https://ab.rockwellautomation.com/" target="_blank" rel="noopener"><img src="/Website/assets/images/brands/rockwell.png" alt="Rockwell / Allen-Bradley"></a>
           <a href="https://www.siemens.com/" target="_blank" rel="noopener"><img src="/Website/assets/images/brands/siemens.png" alt="Siemens"></a>
-          <!-- Repeat for seamless scrolling -->
           <a href="http://new.abb.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/Website/assets/images/brands/abb.png" alt="ABB"></a>
           <a href="http://www.benshaw.com/home/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/Website/assets/images/brands/benshaw.png" alt="Benshaw"></a>
           <a href="http://www.eatoncanada.ca/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/Website/assets/images/brands/eaton.png" alt="Eaton"></a>
@@ -488,7 +394,6 @@
     </div>
   </section>
 
-  <!-- ═══ CERTIFICATIONS ═══ -->
   <section class="section-padding">
     <div class="container">
       <div class="certs-section-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
@@ -498,7 +403,7 @@
           <div class="certs-grid">
             <a class="cert-item cert-item-link fade-up" href="https://www.csagroup.org/" target="_blank" rel="noopener"><div class="cert-icon cert-icon-brand cert-icon-csa"><img class="cert-icon-img" src="/Website/assets/images/csa-icon.jpeg" alt="CSA Group logo"></div><div><h4>CSA Group Certified</h4><span class="cert-link-note">Visit CSA Group</span></div></a>
             <a class="cert-item cert-item-link fade-up" href="https://www.siemens.com/en-us/company/insights/" target="_blank" rel="noopener"><div class="cert-icon cert-icon-brand cert-icon-siemens"><img class="cert-icon-img" src="/Website/assets/images/partners/siemens-icon.png" alt="Siemens logo"></div><div><h4>Siemens Solution Provider</h4><span class="cert-link-note">Learn more</span></div></a>
-             <a class="cert-item cert-item-link fade-up" href="https://www.se.com/us/en/partners/system-integrators/industry/" target="_blank" rel="noopener"><div class="cert-icon cert-icon-brand cert-icon-schneider"><img class="cert-icon-img" src="/Website/assets/images/partners/schneider-icon.png" alt="Schneider Electric logo"></div><div><h4>Schneider Electric Alliance</h4><p>Alliance Registered System Integrator Partner.</p><span class="cert-link-note">Learn More</span></div></a>
+            <a class="cert-item cert-item-link fade-up" href="https://www.se.com/us/en/partners/system-integrators/industry/" target="_blank" rel="noopener"><div class="cert-icon cert-icon-brand cert-icon-schneider"><img class="cert-icon-img" src="/Website/assets/images/partners/schneider-icon.png" alt="Schneider Electric logo"></div><div><h4>Schneider Electric Alliance</h4><p>Alliance Registered System Integrator Partner.</p><span class="cert-link-note">Learn More</span></div></a>
             <a class="cert-item cert-item-link fade-up" href="https://www.isnetworld.com/en" target="_blank" rel="noopener"><div class="cert-icon cert-icon-brand cert-icon-isn"><img class="cert-icon-img" src="/Website/assets/images/partners/isn-icon.png" alt="ISNetworld logo"></div><div><h4>ISNetworld Member Contractor</h4><p>Member contractor listed on ISNetworld.</p><span class="cert-link-note">Visit ISNetworld</span></div></a>
             <div class="cert-item fade-up"><div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div><div><h4>Red Seal Electrician</h4></div></div>
             <div class="cert-item fade-up"><div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div><div><h4>CET Designation</h4></div></div>
@@ -519,7 +424,6 @@
     </div>
   </section>
 
-  <!-- ═══ TESTIMONIALS ═══ -->
   <section class="section-padding" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="container">
       <span class="section-label">Client Feedback</span>
@@ -535,7 +439,6 @@
     </div>
   </section>
 
-  <!-- ═══ CTA ═══ -->
   <section class="cta-band">
     <div class="container">
       <h2>Ready to Automate?</h2>
@@ -545,7 +448,6 @@
   </section>
 </main>
 
-<!-- ═══ FOOTER ═══ -->
 <footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
@@ -553,65 +455,20 @@
         <h3>Indus Automation Inc.</h3>
         <p>Full-service industrial automation — control panels, PLC programming, commissioning, and 24/7 support. CSA-certified. Siemens Solution Provider. Based in Winnipeg, Manitoba.</p>
         <div style="margin-top:20px;display:flex;gap:12px;">
-          <a href="https://linkedin.com/company/indusautomation" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
-            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://g.page/r/CekU074ShzHvEBM/review" target="_blank" rel="noopener" aria-label="Google Reviews" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
-            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/share/1C8xju6A15/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
-            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M22 12.07C22 6.477 17.523 2 12 2S2 6.477 2 12.07C2 17.123 5.657 21.31 10.438 22v-7.07H7.898v-2.86h2.54V9.845c0-2.52 1.492-3.913 3.777-3.913 1.094 0 2.238.197 2.238.197v2.475h-1.26c-1.243 0-1.63.776-1.63 1.572v1.894h2.773l-.443 2.86h-2.33V22C18.343 21.31 22 17.123 22 12.07z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/indusautomationinc?igsh=MWU5ZzJwOWZnY3Z1eQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
-            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.756 5.756 0 0 1 22 7.75v8.5A5.756 5.756 0 0 1 16.25 22h-8.5A5.756 5.756 0 0 1 2 16.25v-8.5A5.756 5.756 0 0 1 7.75 2zm0 1.8A3.954 3.954 0 0 0 3.8 7.75v8.5a3.954 3.954 0 0 0 3.95 3.95h8.5a3.954 3.954 0 0 0 3.95-3.95v-8.5a3.954 3.954 0 0 0-3.95-3.95h-8.5zm8.95 1.35a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/></svg>
-          </a>
+          <a href="https://linkedin.com/company/indusautomation" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://g.page/r/CekU074ShzHvEBM/review" target="_blank" rel="noopener" aria-label="Google Reviews" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></a>
+          <a href="https://www.facebook.com/share/1C8xju6A15/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M22 12.07C22 6.477 17.523 2 12 2S2 6.477 2 12.07C2 17.123 5.657 21.31 10.438 22v-7.07H7.898v-2.86h2.54V9.845c0-2.52 1.492-3.913 3.777-3.913 1.094 0 2.238.197 2.238.197v2.475h-1.26c-1.243 0-1.63.776-1.63 1.572v1.894h2.773l-.443 2.86h-2.33V22C18.343 21.31 22 17.123 22 12.07z"/></svg></a>
+          <a href="https://www.instagram.com/indusautomationinc?igsh=MWU5ZzJwOWZnY3Z1eQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.756 5.756 0 0 1 22 7.75v8.5A5.756 5.756 0 0 1 16.25 22h-8.5A5.756 5.756 0 0 1 2 16.25v-8.5A5.756 5.756 0 0 1 7.75 2zm0 1.8A3.954 3.954 0 0 0 3.8 7.75v8.5a3.954 3.954 0 0 0 3.95 3.95h8.5a3.954 3.954 0 0 0 3.95-3.95v-8.5a3.954 3.954 0 0 0-3.95-3.95h-8.5zm8.95 1.35a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/></svg></a>
         </div>
       </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="/Website/">Home</a></li>
-          <li><a href="/Website/services.html">Services</a></li>
-          <li><a href="/Website/specialties.html">Specialties</a></li>
-          <li><a href="/Website/projects.html">Projects</a></li>
-          <li><a href="/Website/faq.html">FAQ</a></li>
-          <li><a href="/Website/partners.html">Partners</a></li>
-          <li><a href="/Website/contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/Website/services/control-panels.html">Control Panels</a></li>
-          <li><a href="/Website/services/pump-panels.html">Pump Control Panels</a></li>
-          <li><a href="/Website/services/mcc.html">Motor Control Centres</a></li>
-          <li><a href="/Website/services/plc-programming.html">PLC Programming</a></li>
-          <li><a href="/Website/services/design-drafting.html">Design &amp; Drafting</a></li>
-          <li><a href="/Website/services/troubleshooting.html">Troubleshooting</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="https://maps.google.com/?q=442+Higgins+Ave+Winnipeg+MB" target="_blank" rel="noopener">1-442 Higgins Ave</a></li>
-          <li><span>Winnipeg, MB R3A 1S5</span></li>
-          <li><a href="tel:+12049430050">T: 204-943-0050</a></li>
-          <li><span>F: 204-943-0112</span></li>
-          <li><a href="mailto:info@indusautomation.com">info@indusautomation.com</a></li>
-          <li><span>Mon–Fri: 8AM–4:30PM</span></li>
-          <li><span style="color:var(--red);">24-hour service available</span></li>
-        </ul>
-      </div>
+      <div><h4>Quick Links</h4><ul><li><a href="/Website/">Home</a></li><li><a href="/Website/services.html">Services</a></li><li><a href="/Website/specialties.html">Specialties</a></li><li><a href="/Website/projects.html">Projects</a></li><li><a href="/Website/faq.html">FAQ</a></li><li><a href="/Website/partners.html">Partners</a></li><li><a href="/Website/contact.html">Contact Us</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="/Website/services/control-panels.html">Control Panels</a></li><li><a href="/Website/services/pump-panels.html">Pump Control Panels</a></li><li><a href="/Website/services/mcc.html">Motor Control Centres</a></li><li><a href="/Website/services/plc-programming.html">PLC Programming</a></li><li><a href="/Website/services/design-drafting.html">Design &amp; Drafting</a></li><li><a href="/Website/services/troubleshooting.html">Troubleshooting</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="https://maps.google.com/?q=442+Higgins+Ave+Winnipeg+MB" target="_blank" rel="noopener">1-442 Higgins Ave</a></li><li><span>Winnipeg, MB R3A 1S5</span></li><li><a href="tel:+12049430050">T: 204-943-0050</a></li><li><span>F: 204-943-0112</span></li><li><a href="mailto:info@indusautomation.com">info@indusautomation.com</a></li><li><span>Mon–Fri: 8AM–4:30PM</span></li><li><span style="color:var(--red);">24-hour service available</span></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Indus Automation Inc. All rights reserved.</span>
-      <span>CSA-certified industrial automation solutions for Winnipeg and beyond.</span>
-    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Indus Automation Inc. All rights reserved.</span><span>CSA-certified industrial automation solutions for Winnipeg and beyond.</span></div>
   </div>
 </footer>
-<button class="back-to-top" id="backToTop" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></button>
 
 <script src="/Website/js/main.js" defer></script>
 <script src="/Website/js/hero-animation.js" defer></script>
@@ -619,7 +476,6 @@
 <script>document.addEventListener('DOMContentLoaded',()=>injectStructuredData('home'));</script>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
-  // Scroll-triggered animations for values & testimonials
   ['#valuesGrid','#testimonialsGrid'].forEach(sel=>{
     const el=document.querySelector(sel);
     if(!el) return;

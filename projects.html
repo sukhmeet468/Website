@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Featured Projects — Indus Automation Inc. | Winnipeg, MB</title>
-  <meta name="description" content="Case studies from Indus Automation across water treatment, grain handling, machine automation, and food processing.">
+  <meta name="description" content="Case studies from Indus Automation — turnkey water treatment automation, grain handling systems, machine automation, and food processing line upgrades.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://sukhmeet468.github.io/Website/projects.html">
   <link rel="icon" type="image/svg+xml" href="/Website/assets/images/icon.jpg">
@@ -15,100 +15,60 @@
   <link rel="stylesheet" href="/Website/css/style.css">
   <link rel="stylesheet" href="/Website/css/responsive.css">
   <style>
-    /* Shared header/footer shell */
-    .action-bar {
-      position: fixed;
-      top: var(--nav-height);
-      left: 0;
-      right: 0;
-      z-index: 999;
-      background: var(--red);
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-      height: 42px;
-    }
-    .action-bar a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      flex: 1;
-      max-width: 300px;
-      padding: 0 20px;
-      font-family: var(--font-heading);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #fff;
-      transition: background 0.2s;
-      text-decoration: none;
-    }
-    .action-bar a:first-child { border-right: 1px solid rgba(255, 255, 255, 0.2); }
-    .action-bar a:hover { background: var(--red-dark); }
-    .action-bar svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; }
+    .action-bar { position:fixed; top:var(--nav-height); left:0; right:0; z-index:999; background:var(--red); display:flex; justify-content:center; gap:0; border-bottom:1px solid rgba(0,0,0,0.3); height:42px; }
+    .action-bar a { display:flex; align-items:center; justify-content:center; gap:8px; flex:1; max-width:300px; padding:0 20px; font-family:var(--font-heading); font-size:13px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#fff; transition:background 0.2s; text-decoration:none; }
+    .action-bar a:first-child { border-right:1px solid rgba(255,255,255,0.2); }
+    .action-bar a:hover { background:var(--red-dark); }
+    .action-bar svg { width:16px; height:16px; stroke:#fff; fill:none; stroke-width:2; }
+    .page-hero { padding-top:calc(var(--nav-height) + 42px + 80px); }
+    .nav-item { position:relative; }
+    .nav-item > .nav-link { display:flex; align-items:center; gap:4px; }
+    .nav-item > .nav-link::after { content:''; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:4px solid currentColor; transition:transform 0.2s; }
+    .nav-item:hover > .nav-link::after { transform:rotate(180deg); }
+    .dropdown { display:none; position:absolute; top:100%; left:0; min-width:280px; background:rgba(13,13,13,0.98); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); border:1px solid var(--border); padding:8px 0; z-index:1001; box-shadow:0 12px 40px rgba(0,0,0,0.5); }
+    .nav-item:hover .dropdown { display:block; }
+    .dropdown a { display:block; padding:10px 24px; font-family:var(--font-heading); font-size:13px; font-weight:500; letter-spacing:1px; text-transform:uppercase; color:var(--text-secondary); transition:all 0.2s; text-decoration:none; }
+    .dropdown a:hover { color:#fff; background:rgba(230,0,0,0.08); padding-left:28px; }
+    @media(max-width:768px) { .dropdown { position:static; box-shadow:none; border:none; padding-left:16px; } .action-bar a { font-size:11px; letter-spacing:1px; } }
 
-    .page-hero { padding-top: calc(var(--nav-height) + 42px + 80px); }
+    /* ═══ PROJECT CAROUSEL ═══ */
+    .project-carousel { position:relative; overflow:hidden; }
+    .project-track { display:flex; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .project-slide { flex:0 0 100%; min-width:100%; }
+    .project-card { display:grid; grid-template-columns:1fr 1fr; gap:0; background:var(--bg-card); border:1px solid var(--border); min-height:520px; }
+    .project-img { position:relative; overflow:hidden; background:var(--bg-secondary); }
+    .project-img img { width:100%; height:100%; object-fit:cover; }
+    .project-img .placeholder-img { height:100%; margin:0; border:none; min-height:400px; }
+    .project-body { padding:48px 44px; display:flex; flex-direction:column; justify-content:center; }
+    .project-industry { font-family:var(--font-heading); font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:12px; }
+    .project-title { font-family:var(--font-heading); font-size:clamp(24px,3.5vw,36px); font-weight:800; text-transform:uppercase; line-height:1.15; margin-bottom:20px; }
+    .star-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px; }
+    .star-item { padding:16px; background:rgba(230,0,0,0.03); border-left:3px solid var(--red); }
+    .star-label { font-family:var(--font-heading); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:6px; }
+    .star-text { font-size:13px; color:var(--text-secondary); line-height:1.6; }
 
-    .nav-item { position: relative; }
-    .nav-item > .nav-link { display: flex; align-items: center; gap: 4px; }
-    .nav-item > .nav-link::after {
-      content: '';
-      width: 0;
-      height: 0;
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
-      border-top: 4px solid currentColor;
-      transition: transform 0.2s;
-    }
-    .nav-item:hover > .nav-link::after { transform: rotate(180deg); }
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 280px;
-      background: rgba(13, 13, 13, 0.98);
-      -webkit-backdrop-filter: blur(16px);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      padding: 8px 0;
-      z-index: 1001;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-    }
-    .nav-item:hover .dropdown { display: block; }
-    .dropdown a {
-      display: block;
-      padding: 10px 24px;
-      font-family: var(--font-heading);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-    .dropdown a:hover {
-      color: #fff;
-      background: rgba(230, 0, 0, 0.08);
-      padding-left: 28px;
-    }
+    /* Carousel controls */
+    .carousel-controls { display:flex; align-items:center; justify-content:center; gap:20px; margin-top:32px; }
+    .carousel-btn { width:48px; height:48px; background:var(--bg-card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:0.2s; }
+    .carousel-btn:hover { border-color:var(--red); background:rgba(230,0,0,0.05); }
+    .carousel-btn svg { width:20px; height:20px; stroke:var(--text-secondary); fill:none; stroke-width:2; }
+    .carousel-btn:hover svg { stroke:var(--red); }
+    .carousel-dots { display:flex; gap:8px; }
+    .carousel-dot { width:10px; height:10px; background:var(--border); cursor:pointer; transition:0.2s; }
+    .carousel-dot.active { background:var(--red); width:28px; }
 
-    @media (max-width: 768px) {
-      .dropdown {
-        position: static;
-        box-shadow: none;
-        border: none;
-        padding-left: 16px;
-      }
-      .nav-item:hover .dropdown { display: block; }
-      .action-bar a { font-size: 11px; letter-spacing: 1px; }
+    .project-number { font-family:var(--font-heading); font-size:64px; font-weight:900; color:rgba(230,0,0,0.06); position:absolute; top:16px; right:24px; line-height:1; }
+
+    @media(max-width:1024px) {
+      .project-card { grid-template-columns:1fr; }
+      .project-img .placeholder-img { min-height:280px; }
+      .project-body { padding:32px 28px; }
+      .star-grid { grid-template-columns:1fr; }
+    }
+    @media(max-width:560px) {
+      .carousel-btn { width:40px; height:40px; }
     }
   </style>
-
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -119,72 +79,194 @@
     </a>
     <div class="nav-links" id="navLinks" role="menubar">
       <a href="/Website/" class="nav-link" role="menuitem">Home</a>
-
-      <div class="nav-item">
-        <a href="/Website/services.html" class="nav-link" role="menuitem">Services</a>
-        <div class="dropdown">
-          <a href="/Website/services/control-panels.html">Control Panel Design &amp; Fabrication</a>
-          <a href="/Website/services/pump-panels.html">Pump Control Panels</a>
-          <a href="/Website/services/mcc.html">Motor Control Centres</a>
-          <a href="/Website/services/plc-programming.html">PLC/HMI/SCADA Programming</a>
-          <a href="/Website/services/design-drafting.html">Design &amp; Drafting</a>
-          <a href="/Website/services/commissioning.html">Commissioning</a>
-          <a href="/Website/services/troubleshooting.html">Troubleshooting &amp; Maintenance</a>
-          <a href="/Website/services/documentation.html">Documentation</a>
-          <a href="/Website/services/procurement.html">Procurement</a>
-          <a href="/Website/services/instrumentation.html">Instrumentation Services</a>
-        </div>
-      </div>
-
-      <div class="nav-item">
-        <a href="/Website/specialties.html" class="nav-link" role="menuitem">Specialties</a>
-        <div class="dropdown">
-          <a href="/Website/specialties/agriculture.html">Agriculture &amp; Grain Handling</a>
-          <a href="/Website/specialties/breweries.html">Breweries</a>
-          <a href="/Website/specialties/food-processing.html">Food Processing</a>
-          <a href="/Website/specialties/metal-processing.html">Metal Processing</a>
-          <a href="/Website/specialties/mining.html">Mining</a>
-          <a href="/Website/specialties/refrigeration.html">Industrial Refrigeration</a>
-          <a href="/Website/specialties/water-treatment.html">Water &amp; Wastewater</a>
-          <a href="/Website/specialties/utilities.html">Utilities &amp; Power</a>
-          <a href="/Website/specialties/building-controls.html">Building Controls</a>
-          <a href="/Website/specialties/manufacturing-oem.html">Manufacturing &amp; OEM</a>
-          <a href="/Website/specialties/heavy-industry.html">Heavy Industry</a>
-          <a href="/Website/specialties/custom-apps.html">Custom Applications</a>
-        </div>
-      </div>
-
+      <div class="nav-item"><a href="/Website/services.html" class="nav-link" role="menuitem">Services</a><div class="dropdown"><a href="/Website/services/control-panels.html">Control Panel Design &amp; Fabrication</a><a href="/Website/services/pump-panels.html">Pump Control Panels</a><a href="/Website/services/mcc.html">Motor Control Centres</a><a href="/Website/services/plc-programming.html">PLC/HMI/SCADA Programming</a><a href="/Website/services/design-drafting.html">Design &amp; Drafting</a><a href="/Website/services/commissioning.html">Commissioning</a><a href="/Website/services/troubleshooting.html">Troubleshooting &amp; Maintenance</a><a href="/Website/services/documentation.html">Documentation</a><a href="/Website/services/procurement.html">Procurement</a><a href="/Website/services/instrumentation.html">Instrumentation Services</a></div></div>
+      <div class="nav-item"><a href="/Website/specialties.html" class="nav-link" role="menuitem">Specialties</a><div class="dropdown"><a href="/Website/specialties/agriculture.html">Agriculture &amp; Grain Handling</a><a href="/Website/specialties/breweries.html">Breweries</a><a href="/Website/specialties/food-processing.html">Food Processing</a><a href="/Website/specialties/metal-processing.html">Metal Processing</a><a href="/Website/specialties/mining.html">Mining</a><a href="/Website/specialties/refrigeration.html">Industrial Refrigeration</a><a href="/Website/specialties/water-treatment.html">Water &amp; Wastewater</a><a href="/Website/specialties/utilities.html">Utilities &amp; Power</a><a href="/Website/specialties/building-controls.html">Building Controls</a><a href="/Website/specialties/manufacturing-oem.html">Manufacturing &amp; OEM</a><a href="/Website/specialties/heavy-industry.html">Heavy Industry</a><a href="/Website/specialties/custom-apps.html">Custom Applications</a></div></div>
       <a href="/Website/projects.html" class="nav-link" role="menuitem">Projects</a>
       <a href="/Website/faq.html" class="nav-link" role="menuitem">FAQ</a>
       <a href="/Website/partners.html" class="nav-link" role="menuitem">Partners</a>
       <a href="/Website/contact.html" class="nav-link nav-cta" role="menuitem">Contact Us</a>
     </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="action-bar">
-  <a href="mailto:info@indusautomation.com">
-    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-    Email Us
-  </a>
-  <a href="tel:+12049430050">
-    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    Call 204-943-0050
-  </a>
+  <a href="mailto:info@indusautomation.com"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email Us</a>
+  <a href="tel:+12049430050"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call 204-943-0050</a>
 </div>
-<main id="main-content">
 
-  <section class="page-hero"><div class="container"><div class="breadcrumb"><a href="/Website/">Home</a><span class="sep">/</span><span>Projects</span></div><span class="section-label">Our Work</span><h1 class="section-title">Featured Projects</h1><p class="section-desc">Selected case studies from recent projects across multiple industries.</p></div></section>
-  <section class="section-padding"><div class="container"><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);border:1px solid var(--border);">
-    <div style="background:var(--bg-card);padding:40px 32px;"><span class="section-label">Water &amp; Wastewater</span><h3 style="font-family:var(--font-heading);font-size:24px;font-weight:700;text-transform:uppercase;margin:12px 0;">Split Lake WTP Upgrade</h3><p style="color:var(--text-secondary);line-height:1.8;">Turnkey automation — panel design, instrumentation, SCADA, PLC programming, and commissioning.</p></div>
-    <div style="background:var(--bg-card);padding:40px 32px;"><span class="section-label">Grain Handling</span><h3 style="font-family:var(--font-heading);font-size:24px;font-weight:700;text-transform:uppercase;margin:12px 0;">Automated Grain Receiving</h3><p style="color:var(--text-secondary);line-height:1.8;">Automatic control of conveyors, shutters, bucket elevators, and drag conveyors for grain receiving.</p></div>
-    <div style="background:var(--bg-card);padding:40px 32px;"><span class="section-label">Machine Automation</span><h3 style="font-family:var(--font-heading);font-size:24px;font-weight:700;text-transform:uppercase;margin:12px 0;">Automated Coating System</h3><p style="color:var(--text-secondary);line-height:1.8;">Automatic pump speed control for applying beef tallow coating by monitoring conveyors and flow.</p></div>
-    <div style="background:var(--bg-card);padding:40px 32px;"><span class="section-label">Food Processing</span><h3 style="font-family:var(--font-heading);font-size:24px;font-weight:700;text-transform:uppercase;margin:12px 0;">Packaging Conveyor Upgrade</h3><p style="color:var(--text-secondary);line-height:1.8;">Five-line upgrade — automated box flow, collision prevention, label generation, and SCADA integration.</p></div>
-  </div></div></section>
-  <section class="cta-band"><div class="container"><h2>Have a Project in Mind?</h2><p>Let us discuss your requirements and build the right solution.</p><a href="/Website/contact.html" class="btn btn-white btn-arrow">Request a Quote</a></div></section>
+<main id="main-content">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="/Website/">Home</a><span class="sep">/</span><span>Projects</span></div>
+      <span class="section-label">Our Work</span>
+      <h1 class="section-title">Featured Projects</h1>
+      <p class="section-desc">Selected case studies showcasing our end-to-end automation capabilities across water treatment, grain handling, machine automation, and food processing.</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="project-carousel" id="projectCarousel">
+        <div class="project-track" id="projectTrack">
+
+          <!-- ═══ PROJECT 1: Water Treatment ═══ -->
+          <div class="project-slide">
+            <div class="project-card" style="position:relative;">
+              <div class="project-number">01</div>
+              <div class="project-img">
+                <img src="/Website/assets/images/projects/project-wtp.jpg" alt="Split Lake Water Treatment Plant" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="project-body">
+                <div class="project-industry">Water &amp; Wastewater Treatment</div>
+                <h2 class="project-title">Split Lake WTP Upgrade</h2>
+                <div class="star-grid">
+                  <div class="star-item">
+                    <div class="star-label">Situation</div>
+                    <div class="star-text">The Split Lake Water Treatment Plant required a complete automation upgrade to meet modern operational and regulatory standards. The existing control system was outdated and lacked remote monitoring capability.</div>
+                  </div>
+                  <div class="star-item">
+                    <div class="star-label">Task</div>
+                    <div class="star-text">Deliver a turnkey automation solution covering control panel design, instrumentation supply, SCADA system configuration, PLC programming, and full on-site commissioning.</div>
+                  </div>
+                  <div class="star-item">
+                    <div class="star-label">Action</div>
+                    <div class="star-text">Indus designed and fabricated custom control panels, supplied and integrated all process instrumentation, developed PLC programs and SCADA interfaces, and commissioned the entire system on-site.</div>
+                  </div>
+                  <div class="star-item">
+                    <div class="star-label">Result</div>
+                    <div class="star-text">The plant operates with full automation, remote SCADA monitoring, improved compliance reporting, and significantly reduced manual intervention — delivering safe, reliable drinking water to the community.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ═══ PROJECT 2: Grain Handling ═══ -->
+          <div class="project-slide">
+            <div class="project-card" style="position:relative;">
+              <div class="project-number">02</div>
+              <div class="project-img">
+                <img src="/Website/assets/images/projects/project-grain.jpg" alt="Automated Grain Receiving System" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="project-body">
+                <div class="project-industry">Agriculture &amp; Grain Handling</div>
+                <h2 class="project-title">Automated Grain Receiving System</h2>
+                <div class="star-grid">
+                  <div class="star-item">
+                    <div class="star-label">Situation</div>
+                    <div class="star-text">A grain handling facility needed to automate their receiving process, which relied on manual control of conveyors, shutters, bucket elevators, and drag conveyors — leading to slow throughput and operator fatigue.</div>
+                  </div>
+                  <div class="star-item">
+                    <div class="star-label">Task</div>
+                    <div class="star-text">Design and implement an automatic control system to manage the entire grain receiving process — starting, stopping, and controlling direction of conveyors while managing elevator and drag conveyor speeds.</div>
+                  </div>
+                  <div class="star-item">
+                    <div class="star-label">Action</div>
+                    <div class="star-text">Indus developed PLC-based sequencing logic with interlocking, installed VFDs for speed control on bucket elevators and drag conveyors, and integrated safety systems with clear operator interfaces.</div>
+                  </div>
+                  <div class="star-item">
+                    <div class="star-label">Result</div>
+                    <div class="star-text">Fully automated grain receiving with faster throughput, reduced operator workload, consistent equipment protection, and safe sequenced startup/shutdown across the entire material handling chain.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ═══ PROJECT 3: Machine Automation ═══ -->
+          <div class="project-slide">
+            <div class="project-card" style="position:relative;">
+              <div class="project-number">03</div>
+              <div class="project-img">
+                <img src="/Website/assets/images/projects/project-coating.jpg" alt="Automated Beef Tallow Coating System" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="project-body">
+                <div class="project-industry">Machine Automation</div>
+                <h2 class="project-title">Automated Beef Tallow Coating System</h2>
+                <div class="star-grid">
+                  <div class="star-item">
+                    <div class="star-label">Situation</div>
+                    <div class="star-text">A production facility required precise, automatic application of beef tallow coating to product moving on conveyors. Manual pump speed adjustment was inconsistent and caused waste and quality variation.</div>
+                  </div>
+                  <div class="star-item">
+                    <div class="star-label">Task</div>
+                    <div class="star-text">Automate pump speed control to apply coating at the correct rate by monitoring conveyor speed and product flow in real time — eliminating manual adjustment.</div>
+                  </div>
+                  <div class="star-item">
+                    <div class="star-label">Action</div>
+                    <div class="star-text">Indus programmed a PLC to monitor conveyor and flow sensors, then automatically adjust VFD-controlled pump speed proportionally. The system included operator interface screens for monitoring and adjustment.</div>
+                  </div>
+                  <div class="star-item">
+                    <div class="star-label">Result</div>
+                    <div class="star-text">Consistent, even coating application with reduced material waste, improved product quality, and zero manual speed adjustment required during production runs.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ═══ PROJECT 4: Food Processing ═══ -->
+          <div class="project-slide">
+            <div class="project-card" style="position:relative;">
+              <div class="project-number">04</div>
+              <div class="project-img">
+                <img src="/Website/assets/images/projects/project-packaging.jpg" alt="Five-line automated packaging conveyor system in a food processing facility, showing coordinated conveyor belts with integrated label printers and VFD-controlled motors operating in a modern industrial warehouse setting with controlled lighting and organized workflow" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="project-body">
+                <div class="project-industry">Food Processing</div>
+                <h2 class="project-title">Five-Line Packaging Conveyor Upgrade</h2>
+                <div class="star-grid">
+                  <div class="star-item">
+                    <div class="star-label">Situation</div>
+                    <div class="star-text">A food processing plant had five packaging conveyor lines with manual box handling, frequent collisions, inconsistent label printing, and no centralized process visibility — limiting throughput and creating quality issues.</div>
+                  </div>
+                  <div class="star-item">
+                    <div class="star-label">Task</div>
+                    <div class="star-text">Upgrade all five lines to a fully automated packaging system with coordinated box flow, collision prevention, automatic label generation, seamless motor control, and full SCADA process visualization.</div>
+                  </div>
+                  <div class="star-item">
+                    <div class="star-label">Action</div>
+                    <div class="star-text">Indus designed new control panels, programmed PLC logic for box detection and collision avoidance, integrated automatic label printers triggered by box sensors, implemented smooth VFD motor control, and built SCADA screens depicting the entire process in real time.</div>
+                  </div>
+                  <div class="star-item">
+                    <div class="star-label">Result</div>
+                    <div class="star-text">All five lines run fully automated with zero box collisions, accurate automatic labeling, smooth coordinated flow, and complete real-time SCADA visibility — increasing throughput and eliminating manual intervention.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Carousel Controls -->
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prevBtn" aria-label="Previous project">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-dots" id="carouselDots">
+            <div class="carousel-dot active" data-index="0"></div>
+            <div class="carousel-dot" data-index="1"></div>
+            <div class="carousel-dot" data-index="2"></div>
+            <div class="carousel-dot" data-index="3"></div>
+          </div>
+          <button class="carousel-btn" id="nextBtn" aria-label="Next project">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Have a Project in Mind?</h2>
+      <p>Let us discuss your requirements and build the right solution.</p>
+      <a href="/Website/contact.html" class="btn btn-white btn-arrow">Request a Quote</a>
+    </div>
+  </section>
 </main>
+
 <footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
@@ -192,67 +274,56 @@
         <h3>Indus Automation Inc.</h3>
         <p>Full-service industrial automation — control panels, PLC programming, commissioning, and 24/7 support. CSA-certified. Siemens Solution Provider. Based in Winnipeg, Manitoba.</p>
         <div style="margin-top:20px;display:flex;gap:12px;">
-          <a href="https://linkedin.com/company/indusautomation" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
-            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://g.page/r/CekU074ShzHvEBM/review" target="_blank" rel="noopener" aria-label="Google Reviews" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
-            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/share/1C8xju6A15/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
-            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M22 12.07C22 6.477 17.523 2 12 2S2 6.477 2 12.07C2 17.123 5.657 21.31 10.438 22v-7.07H7.898v-2.86h2.54V9.845c0-2.52 1.492-3.913 3.777-3.913 1.094 0 2.238.197 2.238.197v2.475h-1.26c-1.243 0-1.63.776-1.63 1.572v1.894h2.773l-.443 2.86h-2.33V22C18.343 21.31 22 17.123 22 12.07z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/indusautomationinc?igsh=MWU5ZzJwOWZnY3Z1eQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
-            <svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.756 5.756 0 0 1 22 7.75v8.5A5.756 5.756 0 0 1 16.25 22h-8.5A5.756 5.756 0 0 1 2 16.25v-8.5A5.756 5.756 0 0 1 7.75 2zm0 1.8A3.954 3.954 0 0 0 3.8 7.75v8.5a3.954 3.954 0 0 0 3.95 3.95h8.5a3.954 3.954 0 0 0 3.95-3.95v-8.5a3.954 3.954 0 0 0-3.95-3.95h-8.5zm8.95 1.35a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/></svg>
-          </a>
+          <a href="https://linkedin.com/company/indusautomation" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.064 2.064 0 1 1 0-4.128 2.064 2.064 0 0 1 0 4.128zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://g.page/r/CekU074ShzHvEBM/review" target="_blank" rel="noopener" aria-label="Google Reviews" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></a>
+          <a href="https://www.facebook.com/share/1C8xju6A15/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M22 12.07C22 6.477 17.523 2 12 2S2 6.477 2 12.07C2 17.123 5.657 21.31 10.438 22v-7.07H7.898v-2.86h2.54V9.845c0-2.52 1.492-3.913 3.777-3.913 1.094 0 2.238.197 2.238.197v2.475h-1.26c-1.243 0-1.63.776-1.63 1.572v1.894h2.773l-.443 2.86h-2.33V22C18.343 21.31 22 17.123 22 12.07z"/></svg></a>
+          <a href="https://www.instagram.com/indusautomationinc?igsh=MWU5ZzJwOWZnY3Z1eQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" fill="var(--text-secondary)" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.756 5.756 0 0 1 22 7.75v8.5A5.756 5.756 0 0 1 16.25 22h-8.5A5.756 5.756 0 0 1 2 16.25v-8.5A5.756 5.756 0 0 1 7.75 2zm0 1.8A3.954 3.954 0 0 0 3.8 7.75v8.5a3.954 3.954 0 0 0 3.95 3.95h8.5a3.954 3.954 0 0 0 3.95-3.95v-8.5a3.954 3.954 0 0 0-3.95-3.95h-8.5zm8.95 1.35a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/></svg></a>
         </div>
       </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="/Website/">Home</a></li>
-          <li><a href="/Website/services.html">Services</a></li>
-          <li><a href="/Website/specialties.html">Specialties</a></li>
-          <li><a href="/Website/projects.html">Projects</a></li>
-          <li><a href="/Website/faq.html">FAQ</a></li>
-          <li><a href="/Website/partners.html">Partners</a></li>
-          <li><a href="/Website/contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/Website/services/control-panels.html">Control Panels</a></li>
-          <li><a href="/Website/services/pump-panels.html">Pump Control Panels</a></li>
-          <li><a href="/Website/services/mcc.html">Motor Control Centres</a></li>
-          <li><a href="/Website/services/plc-programming.html">PLC Programming</a></li>
-          <li><a href="/Website/services/design-drafting.html">Design &amp; Drafting</a></li>
-          <li><a href="/Website/services/troubleshooting.html">Troubleshooting</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="https://maps.google.com/?q=442+Higgins+Ave+Winnipeg+MB" target="_blank" rel="noopener">1-442 Higgins Ave</a></li>
-          <li><span>Winnipeg, MB R3A 1S5</span></li>
-          <li><a href="tel:+12049430050">T: 204-943-0050</a></li>
-          <li><span>F: 204-943-0112</span></li>
-          <li><a href="mailto:info@indusautomation.com">info@indusautomation.com</a></li>
-          <li><span>Mon–Fri: 8AM–4:30PM</span></li>
-          <li><span style="color:var(--red);">24-hour service available</span></li>
-        </ul>
-      </div>
+      <div><h4>Quick Links</h4><ul><li><a href="/Website/">Home</a></li><li><a href="/Website/services.html">Services</a></li><li><a href="/Website/specialties.html">Specialties</a></li><li><a href="/Website/projects.html">Projects</a></li><li><a href="/Website/faq.html">FAQ</a></li><li><a href="/Website/partners.html">Partners</a></li><li><a href="/Website/contact.html">Contact Us</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="/Website/services/control-panels.html">Control Panels</a></li><li><a href="/Website/services/pump-panels.html">Pump Control Panels</a></li><li><a href="/Website/services/mcc.html">Motor Control Centres</a></li><li><a href="/Website/services/plc-programming.html">PLC Programming</a></li><li><a href="/Website/services/design-drafting.html">Design &amp; Drafting</a></li><li><a href="/Website/services/troubleshooting.html">Troubleshooting</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="https://maps.google.com/?q=442+Higgins+Ave+Winnipeg+MB" target="_blank" rel="noopener">1-442 Higgins Ave</a></li><li><span>Winnipeg, MB R3A 1S5</span></li><li><a href="tel:+12049430050">T: 204-943-0050</a></li><li><span>F: 204-943-0112</span></li><li><a href="mailto:info@indusautomation.com">info@indusautomation.com</a></li><li><span>Mon–Fri: 8AM–4:30PM</span></li><li><span style="color:var(--red);">24-hour service available</span></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Indus Automation Inc. All rights reserved.</span>
-      <span>CSA Certified &bull; Siemens Solution Provider &bull; Winnipeg, MB</span>
-    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Indus Automation Inc. All rights reserved.</span><span>CSA-certified industrial automation solutions for Winnipeg and beyond.</span></div>
   </div>
 </footer>
-<button class="back-to-top" id="backToTop" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></button>
 
 <script src="/Website/js/main.js" defer></script>
 <script src="/Website/js/seo.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.getElementById('projectTrack');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const prev = document.getElementById('prevBtn');
+  const next = document.getElementById('nextBtn');
+  let current = 0;
+  const total = document.querySelectorAll('.project-slide').length;
+
+  function goTo(index) {
+    current = (index + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  prev.addEventListener('click', () => goTo(current - 1));
+  next.addEventListener('click', () => goTo(current + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.index)));
+
+  // Swipe support
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+  });
+
+  // Auto-advance every 8 seconds
+  let autoplay = setInterval(() => goTo(current + 1), 8000);
+  const carousel = document.getElementById('projectCarousel');
+  carousel.addEventListener('mouseenter', () => clearInterval(autoplay));
+  carousel.addEventListener('mouseleave', () => { autoplay = setInterval(() => goTo(current + 1), 8000); });
+});
+</script>
 </body>
 </html>
