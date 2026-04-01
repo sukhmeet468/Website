@@ -23,6 +23,9 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: PerplexityBot
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
