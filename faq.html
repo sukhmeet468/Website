@@ -11,7 +11,8 @@
   <link rel="apple-touch-icon" href="/Website/assets/images/icon.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="/Website/css/style.css">
   <link rel="stylesheet" href="/Website/css/responsive.css">
   <style>
@@ -155,8 +156,9 @@
       </div>
 
       <a href="/Website/projects.html" class="nav-link" role="menuitem">Projects</a>
-      <a href="/Website/faq.html" class="nav-link" role="menuitem">FAQ</a>
       <a href="/Website/partners.html" class="nav-link" role="menuitem">Partners</a>
+      <a href="/Website/blog.html" class="nav-link" role="menuitem">Blogs</a>
+      <a href="/Website/faq.html" class="nav-link" role="menuitem">FAQ</a>
       <a href="/Website/contact.html" class="nav-link nav-cta" role="menuitem">Contact Us</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -256,5 +258,34 @@
 
 <script src="/Website/js/main.js" defer></script>
 <script src="/Website/js/seo.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  injectStructuredData('faq', {
+    faqs: [
+      {
+        q: 'Are your control panels CSA certified?',
+        a: 'Yes. All panels manufactured by Indus Automation are CSA Group-certified and carry a CSA label from an independent testing facility, accepted across North America and globally.'
+      },
+      {
+        q: 'What PLC brands do you program?',
+        a: 'We specialize in Allen-Bradley (Rockwell), Siemens, and Modicon (Schneider) PLCs. As a Siemens Solution Provider we also support the full SIMATIC line including S7-1200, S7-1500, and WinCC SCADA.'
+      },
+      {
+        q: 'Do you offer 24-hour emergency support?',
+        a: 'Yes. Critical systems don\'t wait for business hours. Call 204-943-0050 any time for urgent troubleshooting and support.'
+      },
+      {
+        q: 'What industries do you serve?',
+        a: 'We serve agriculture, food processing, mining, metal processing, water and wastewater treatment, industrial refrigeration, utilities, breweries, building controls, manufacturing, and heavy industry across Manitoba and North America.'
+      },
+      {
+        q: 'Where are you located and what areas do you service?',
+        a: 'We are based at 1-442 Higgins Ave, Winnipeg, MB R3A 1S5. We service Winnipeg and surrounding areas, with projects completed across Canada and abroad.'
+      },
+      // Add more as needed — each one is a potential rich result in Google
+    ]
+  });
+});
+</script>
 </body>
 </html>

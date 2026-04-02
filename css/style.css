@@ -30,8 +30,8 @@
 
   /* Text */
   --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
-  --text-muted: #777777;
+  --text-secondary: #a0a0a0;
+  --text-muted: #8a8a8a;
   --text-dim: #555555;
 
   /* Typography */
@@ -1597,3 +1597,35 @@ button[type="submit"] {
   transition: top var(--transition);
 }
 .skip-link:focus { top: 16px; }
+
+/* ─── CORPORATE TONE ADJUSTMENTS ─── */
+.hero-canvas-wrap canvas {
+  opacity: 0.3 !important;
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(13, 13, 13, 0.75) 0%,
+    rgba(13, 13, 13, 0.55) 40%,
+    rgba(13, 13, 13, 0.35) 100%
+  ) !important;
+}
+
+.testimonial-card h4 {
+  font-style: normal !important;
+}
+
+.testimonial-card .stars {
+  font-size: 14px !important;
+  letter-spacing: 1px !important;
+}
+
+.btn-primary {
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.section-desc {
+  text-transform: none;
+}

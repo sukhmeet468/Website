@@ -73,6 +73,22 @@ function injectStructuredData(pageType, pageData = {}) {
         { name: 'Contact Us', url: '/contact.html' },
       ]));
       break;
+    
+    case 'faq':
+      schemas.push(getFAQSchema(pageData.faqs));
+      schemas.push(getBreadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'FAQ', url: '/faq.html' },
+      ]));
+      break;
+
+    default:
+      // For any other page types, we can add a generic breadcrumb
+      schemas.push(getBreadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: pageType.charAt(0).toUpperCase() + pageType.slice(1), url: window.location.pathname },
+      ]));
+      break;
   }
 
   // Inject all schemas
@@ -109,6 +125,7 @@ function getLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'ElectricalContractor',
+    '@id': COMPANY.url + '/#localbusiness',
     name: COMPANY.name,
     url: COMPANY.url,
     image: COMPANY.logo,
@@ -134,6 +151,11 @@ function getLocalBusinessSchema() {
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Troubleshooting & Maintenance' } },
       ],
     },
+    areaServed: [
+      { '@type': 'City', name: 'Winnipeg' },
+      { '@type': 'AdministrativeArea', name: 'Manitoba' },
+      { '@type': 'Country', name: 'Canada' },
+    ],
   };
 }
 
@@ -181,5 +203,20 @@ function getAddressSchema() {
     addressRegion: COMPANY.address.province,
     postalCode: COMPANY.address.postal,
     addressCountry: COMPANY.address.country,
+  };
+}
+
+function getFAQSchema(faqs = []) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: a,
+      },
+    })),
   };
 }
